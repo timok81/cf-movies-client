@@ -29,5 +29,4 @@ The goal of the project was to build the client-side of a movie database app bas
 - The application must be hosted online
 - The application may use React Redux for state management of at least one feature (i.e.,fltering movies)
 
--Server-side repository: [(https://github.com/timok81/cf-movie-api)]\
-
+- Server-side repository: https://github.com/timok81/cf-movie-api
