@@ -14,7 +14,7 @@ const MainView = () => {
           return {
             id: obj._id,
             name: obj.Name,
-            image: null,
+            image: obj.ImagePath,
             director: obj.Director.Name,
             genre: obj.Genre.Name,
             released: obj.Released,
