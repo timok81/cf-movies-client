@@ -1,5 +1,14 @@
 $color: steelblue;
 
+html {
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
 .cf-movies {
   color: $color;
+}
+
+h1 {
+  margin: 0 0 16px 0;
 }
