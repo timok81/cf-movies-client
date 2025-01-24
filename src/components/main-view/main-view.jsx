@@ -12,8 +12,6 @@ const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
 
-  console.log(token);
-
   useEffect(() => {
     if (!token) return;
 
