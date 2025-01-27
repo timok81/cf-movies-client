@@ -1,5 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -35,34 +38,47 @@ export const LoginView = ({ onLoggedIn }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Sign in</h1>
-      <label>
-        Username:
-        <input
+      <h3 className="mb-4">Sign in</h3>
+      <Form.Group controlId="formUsername">
+      <FloatingLabel
+        controlId="floatingInput"
+        label="Username"
+        className="mb-3"
+      >
+        <Form.Control
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          pattern="^[a-zA-Z0-9]+$"
           required
-          minLength={5}
+          minLength="5"
+          placeholder="Username"
+          className="mb-3"
         />
-      </label>
-      <br />
-      <br />
-      <label>
-        Password:
-        <input
+         </FloatingLabel>
+      </Form.Group>
+
+      <Form.Group controlId="formPassword">
+      <FloatingLabel
+        controlId="floatingInput"
+        label="Password"
+        className="mb-3"
+      >
+        <Form.Control
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          pattern="^\S+$"
           required
-          minLength={8}
+          minLength="8"
+          Placeholder="Password"
+          className="mb-4"
         />
-      </label>
-      <br />
-      <br />
-      <button type="submit">Login</button>
-      <br />
-      <br />
+        </FloatingLabel>
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
     </form>
   );
 };
