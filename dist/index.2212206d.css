@@ -13155,13 +13155,36 @@ textarea.form-control-lg {
   }
 }
 
+.image-wrapper {
+  width: 100%;
+  padding-top: 150%;
+  position: relative;
+}
+
+.image-wrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .subject {
   font-size: 1rem;
   font-weight: bold;
 }
 
 .genre {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.25rem;
 }
 
 span {

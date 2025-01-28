@@ -83,7 +83,7 @@ const MainView = () => {
             return (
               <>
                 <Row>
-                  <Col md={10}>
+                  <Col>
                     <MovieView
                       movie={selectedMovie}
                       onBackClick={() => setSelectedMovie(null)}
@@ -91,13 +91,11 @@ const MainView = () => {
                   </Col>
                 </Row>
                 <br />
-                <hr />
-                <Row>
-                  <h2 className="mb-4">Similar movies</h2>
+                <Row className="g-4">
+                  <h2>Similar movies</h2>
                   {similarMovies.map((movie) => (
-                    <Col md={2} className="movie-card">
+                    <Col key={movie.id} md={3} className="movie-card">
                       <MovieCard
-                        key={movie.id}
                         movie={movie}
                         onMovieClick={(newSelectedMovie) => {
                           setSelectedMovie(newSelectedMovie);
@@ -116,10 +114,10 @@ const MainView = () => {
         </Row>
       ) : (
         <>
-          <Row>
+          <Row className="g-4">
             {movies.map((movie) => {
               return (
-                <Col key={movie.id} md={3} className="mb-5 movie-card">
+                <Col key={movie.id} sm={6} md={4} lg={3} className="movie-card">
                   <MovieCard
                     movie={movie}
                     onMovieClick={(newSelectedMovie) => {
