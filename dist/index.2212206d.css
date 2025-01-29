@@ -13170,6 +13170,10 @@ textarea.form-control-lg {
   left: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .subject {
   font-size: 1rem;
   font-weight: bold;

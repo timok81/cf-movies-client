@@ -1,10 +1,15 @@
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./movie-view.scss";
 
 //Displays detailed movie information
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies }) => {
+  const { movieId } = useParams();
+  const movie = movies.find((movie) => movie.id === movieId);
+
   return (
     <Row>
       <Col md={4} className="mb-4">
@@ -36,13 +41,11 @@ export const MovieView = ({ movie, onBackClick }) => {
               <div>{movie.actors.join(", ")}</div>
             </div>
             <div className="align-content-end">
-              <Button
-                variant="outline-secondary"
-                size="lg"
-                onClick={onBackClick}
-              >
-                Back
-              </Button>
+              <Link to={`/`}>
+                <Button variant="outline-secondary" size="lg">
+                  Back
+                </Button>
+              </Link>
             </div>
           </div>
         </Row>
