@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 
 const CfMoviesApplication = () => {
   return (
-    <Container className="my-5 justify-content-center">
+    <Container fluid className="px-0">
       <MainView />
     </Container>
   );

@@ -13155,6 +13155,10 @@ textarea.form-control-lg {
   }
 }
 
+html {
+  overflow-x: hidden;
+}
+
 .image-wrapper {
   width: 100%;
   padding-top: 150%;
