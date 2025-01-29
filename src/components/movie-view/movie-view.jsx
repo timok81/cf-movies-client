@@ -1,41 +1,54 @@
 import PropTypes from "prop-types";
+import { Row, Col } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import "./movie-view.scss";
 
 //Displays detailed movie information
 export const MovieView = ({ movie, onBackClick }) => {
   return (
-    <div>
-      <img src={movie.image} height={400} />
-      <div>
-        <h1>{movie.name}</h1>
-      </div>
-      <div>
-        <span>Genre: </span>
-        <span>{movie.genre}</span>
-      </div>
-      <div>
-        <span>Released: </span>
-        <span>{movie.released}</span>
-      </div>
-      <div>
-        <span>Director: </span>
-        <span>{movie.director}</span>
-      </div>
-      <div>
-        <span>Actors: </span>
-        <span>
-          {movie.actors.map((actor, index) => {
-            if (index < movie.actors.length - 1) return actor + ", ";
-            else return actor;
-          })}
-        </span>
-      </div>
-      <div>
-        <span>Description: </span>
-        <span>{movie.description}</span>
-      </div>
-      <br />
-      <button onClick={onBackClick}>Back</button>
-    </div>
+    <Row>
+      <Col md={4} className="mb-4">
+        <img
+          src={movie.image}
+          className="w-100 rounded"
+          alt={`${movie.name} poster`}
+        />
+      </Col>
+
+      <Col>
+        <Row className="h-50 align-content-start">
+          <Col>
+            <div className="d-flex justify-content-between align-items-center">
+              <h1 className="fw-bold">{movie.name}</h1>
+              <h2 className="text-muted">{movie.released}</h2>
+            </div>
+            <h3 className="mb-4 text-muted">{movie.genre}</h3>
+            <hr />
+            <div>{movie.description}</div>
+          </Col>
+        </Row>
+        <Row className="h-50 d-flex align-content-end pb-4">
+          <div className="d-flex justify-content-between">
+            <div>
+              <h4>Director:</h4>
+              <div className="mb-4">{movie.director}</div>
+              <h4>Cast:</h4>
+              <div>{movie.actors.join(", ")}</div>
+            </div>
+            <div className="align-content-end">
+              <Button
+                variant="outline-secondary"
+                size="lg"
+                onClick={onBackClick}
+              >
+                Back
+              </Button>
+            </div>
+          </div>
+        </Row>
+        <br />
+      </Col>
+    </Row>
   );
 };
 

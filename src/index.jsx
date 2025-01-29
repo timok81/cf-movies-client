@@ -1,9 +1,14 @@
 import { createRoot } from "react-dom/client";
 import "./index.scss";
-import  MainView  from "./components/main-view/main-view";
+import MainView from "./components/main-view/main-view";
+import Container from "react-bootstrap/Container";
 
 const CfMoviesApplication = () => {
-  return <MainView />;
+  return (
+    <Container className="my-5 justify-content-center">
+      <MainView />
+    </Container>
+  );
 };
 
 const container = document.querySelector("#root");

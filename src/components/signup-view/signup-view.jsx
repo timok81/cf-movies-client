@@ -1,10 +1,15 @@
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import "./signup-view.scss"
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
+  const [focus, setFocus] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,53 +39,95 @@ export const SignupView = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Create a new account</h1>
-      <label>
-        Username:
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          minLength={5}
-        />
-      </label>
+      <h3 className="mb-4">Create an account</h3>
+      <span>Fields marked with * are required</span>
       <br />
       <br />
-      <label>
-        Password:
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          minLength={8}
-        />
-      </label>
-      <br />
-      <br />
-      <label>
-        Email:
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <br />
-      <br />
-      <label>
-        Birthday:
-        <input
+      <Form.Group controlId="formUsername">
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Username *"
+          className="mb-3"
+        >
+          <Form.Control
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            pattern="^[a-zA-Z0-9]+$"
+            required
+            minLength="5"
+            placeholder="Username"
+            className="mb-3"
+            aria-describedby="usernameHelpBlock"
+            onFocus={() => setFocus("username")}
+            onBlur={() => setFocus(null)}
+          />
+          <Form.Text id="usernameHelpBlock" muted>
+            {focus === "username" && "Your username must be at least 5 characters long and may only contain letters and numbers."}
+          </Form.Text>
+        </FloatingLabel>
+      </Form.Group>
+
+      <Form.Group controlId="formPassword">
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Password *"
+          className="mb-3"
+        >
+          <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            pattern="^\S+$"
+            required
+            minLength="8"
+            Placeholder="Password"
+            className="mb-4"
+            aria-describedby="passwordHelpBlock"
+            onFocus={() => setFocus("password")}
+            onBlur={() => setFocus(null)}
+          />
+          <Form.Text id="passwordHelpBlock" muted>
+            {focus === "password" && "Your password must have at least 8 characters and may not contain spaces."}
+          </Form.Text>
+        </FloatingLabel>
+      </Form.Group>
+
+      <Form.Group controlId="formEmail">
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Email address *"
+          className="mb-3"
+        >
+          <Form.Control
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            Placeholder="Email"
+            className="mb-3"
+            aria-describedby="emaildHelpBlock"
+            onFocus={() => setFocus("email")}
+            onBlur={() => setFocus(null)}
+          />
+          <Form.Text id="emaildHelpBlock" muted>
+            {focus === "email" && "Your email must be valid."}
+          </Form.Text>
+        </FloatingLabel>
+      </Form.Group>
+
+      <Form.Group controlId="formBirthday">
+        <Form.Label>Birthday:</Form.Label>
+        <Form.Control
           type="date"
           value={birthday}
           onChange={(e) => setBirthday(e.target.value)}
+          className="mb-4"
         />
-      </label>
-      <br />
-      <br />
-      <button type="submit">Sign up</button>
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Create Account
+      </Button>
     </form>
   );
 };
