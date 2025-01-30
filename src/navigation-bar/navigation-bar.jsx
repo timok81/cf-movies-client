@@ -1,12 +1,13 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import PropTypes from "prop-types";
 
 function NavigationBar({ user, onLoggedOut }) {
   return (
     <Navbar data-bs-theme="dark" expand="lg" className="bg-body-tertiary mb-5">
       <Container fluid>
-        <Navbar.Brand href="#home">Movie Database</Navbar.Brand>
+        <Navbar.Brand href="/">MovieDB</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="ms-auto">
@@ -19,7 +20,7 @@ function NavigationBar({ user, onLoggedOut }) {
             {user && (
               <>
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/profile">Profile</Nav.Link>
+                <Nav.Link href={`/profile/${user.Username}`}>Profile</Nav.Link>
                 <Nav.Link onClick={onLoggedOut}>Log out</Nav.Link>
               </>
             )}
@@ -31,3 +32,8 @@ function NavigationBar({ user, onLoggedOut }) {
 }
 
 export default NavigationBar;
+
+NavigationBar.propTypes = {
+  user: PropTypes.object,
+  onLoggedOut: PropTypes.func,
+};

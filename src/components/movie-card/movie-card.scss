@@ -16,3 +16,18 @@
 a {
   text-decoration: none;
 }
+
+.fav-button {
+  font-size: 3rem;
+  position: absolute;
+  border: none;
+  background: none;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  color: rgba(255, 174, 0, 0.75);
+}
+
+.fav-button:hover {
+  color: rgb(255, 174, 0, 1);
+}

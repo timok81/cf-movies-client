@@ -41,7 +41,7 @@ export const LoginView = ({ onLoggedIn }) => {
       <h3 className="mb-4">Sign in</h3>
       <Form.Group controlId="formUsername">
       <FloatingLabel
-        controlId="floatingInput"
+        controlId="userName"
         label="Username"
         className="mb-3"
       >
@@ -60,7 +60,7 @@ export const LoginView = ({ onLoggedIn }) => {
 
       <Form.Group controlId="formPassword">
       <FloatingLabel
-        controlId="floatingInput"
+        controlId="password"
         label="Password"
         className="mb-3"
       >
@@ -71,7 +71,7 @@ export const LoginView = ({ onLoggedIn }) => {
           pattern="^\S+$"
           required
           minLength="8"
-          Placeholder="Password"
+          placeholder="Password"
           className="mb-4"
         />
         </FloatingLabel>

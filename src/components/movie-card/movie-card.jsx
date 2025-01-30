@@ -4,19 +4,25 @@ import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
 //Displays movie list item
-export const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie, isFav, onFavToggle }) => {
   return (
-    <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-      <Card className="h-100 movie-card">
+    <Card className="h-100 movie-card">
+      <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
         <div className="image-wrapper">
           <Card.Img variant="top" src={movie.image} />
         </div>
-        <Card.Body>
-          <Card.Title>{movie.name}</Card.Title>
-          <Card.Text>{movie.genre}</Card.Text>
-        </Card.Body>
-      </Card>
-    </Link>
+      </Link>
+      <Card.Body className="mb-0">
+        <button
+          className="fav-button"
+          onClick={() => onFavToggle(isFav, movie.id)}
+        >
+          {isFav ? "★" : "☆"}
+        </button>
+        <Card.Title>{movie.name}</Card.Title>
+        <Card.Text>{movie.genre}</Card.Text>
+      </Card.Body>
+    </Card>
   );
 };
 
@@ -30,5 +36,6 @@ MovieCard.propTypes = {
     genre: PropTypes.string,
     Description: PropTypes.string,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
+  isFav: PropTypes.bool,
+  onFavToggle: PropTypes.func.isRequired,
 };

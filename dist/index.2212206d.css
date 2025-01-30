@@ -13178,6 +13178,21 @@ a {
   text-decoration: none;
 }
 
+.fav-button {
+  z-index: 1;
+  color: #ffae00bf;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.fav-button:hover {
+  color: #ffae00;
+}
+
 .subject {
   font-size: 1rem;
   font-weight: bold;
@@ -13195,11 +13210,6 @@ h4 {
   font-size: 1.25rem;
 }
 
-span {
-  font-size: .75rem;
-  font-weight: normal;
-}
-
 .welcome {
   font-size: 1.75rem;
 }
@@ -13209,7 +13219,8 @@ span {
   font-weight: bold;
 }
 
-.movie-card:hover {
-  cursor: pointer;
+span {
+  font-size: .75rem;
+  font-weight: normal;
 }
 /*# sourceMappingURL=index.2212206d.css.map */

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
@@ -10,6 +11,7 @@ export const SignupView = () => {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
   const [focus, setFocus] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,7 +32,7 @@ export const SignupView = () => {
     }).then((response) => {
       if (response.ok) {
         alert("Signup successful");
-        window.location.reload();
+        navigate("/login");
       } else {
         alert("Signup failed");
       }
@@ -45,7 +47,7 @@ export const SignupView = () => {
       <br />
       <Form.Group controlId="formUsername">
         <FloatingLabel
-          controlId="floatingInput"
+          controlId="userName"
           label="Username *"
           className="mb-3"
         >
@@ -70,7 +72,7 @@ export const SignupView = () => {
 
       <Form.Group controlId="formPassword">
         <FloatingLabel
-          controlId="floatingInput"
+          controlId="password"
           label="Password *"
           className="mb-3"
         >
@@ -81,7 +83,7 @@ export const SignupView = () => {
             pattern="^\S+$"
             required
             minLength="8"
-            Placeholder="Password"
+            placeholder="Password"
             className="mb-4"
             aria-describedby="passwordHelpBlock"
             onFocus={() => setFocus("password")}
@@ -95,7 +97,7 @@ export const SignupView = () => {
 
       <Form.Group controlId="formEmail">
         <FloatingLabel
-          controlId="floatingInput"
+          controlId="email"
           label="Email address *"
           className="mb-3"
         >
@@ -104,7 +106,7 @@ export const SignupView = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            Placeholder="Email"
+            placeholder="Email"
             className="mb-3"
             aria-describedby="emaildHelpBlock"
             onFocus={() => setFocus("email")}

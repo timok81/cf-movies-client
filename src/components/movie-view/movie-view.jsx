@@ -4,19 +4,26 @@ import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./movie-view.scss";
+import { MovieCard } from "../movie-card/movie-card";
 
 //Displays detailed movie information
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, favouriteMovies, onFavToggle }) => {
   const { movieId } = useParams();
-  const movie = movies.find((movie) => movie.id === movieId);
+  const selectedMovie = movies.find((movie) => movie.id === movieId);
+
+  const similarMovies = movies.filter((movie) => {
+    return (
+      movie.genre === selectedMovie.genre && movie.name !== selectedMovie.name
+    );
+  });
 
   return (
     <Row>
       <Col md={4} className="mb-4">
         <img
-          src={movie.image}
+          src={selectedMovie.image}
           className="w-100 rounded"
-          alt={`${movie.name} poster`}
+          alt={`${selectedMovie.name} poster`}
         />
       </Col>
 
@@ -24,21 +31,21 @@ export const MovieView = ({ movies }) => {
         <Row className="h-50 align-content-start">
           <Col>
             <div className="d-flex justify-content-between align-items-center">
-              <h1 className="fw-bold">{movie.name}</h1>
-              <h2 className="text-muted">{movie.released}</h2>
+              <h1 className="fw-bold">{selectedMovie.name}</h1>
+              <h2 className="text-muted">{selectedMovie.released}</h2>
             </div>
-            <h3 className="mb-4 text-muted">{movie.genre}</h3>
+            <h3 className="mb-4 text-muted">{selectedMovie.genre}</h3>
             <hr />
-            <div>{movie.description}</div>
+            <div>{selectedMovie.description}</div>
           </Col>
         </Row>
         <Row className="h-50 d-flex align-content-end pb-4">
           <div className="d-flex justify-content-between">
             <div>
               <h4>Director:</h4>
-              <div className="mb-4">{movie.director}</div>
+              <div className="mb-4">{selectedMovie.director}</div>
               <h4>Cast:</h4>
-              <div>{movie.actors.join(", ")}</div>
+              <div>{selectedMovie.actors.join(", ")}</div>
             </div>
             <div className="align-content-end">
               <Link to={`/`}>
@@ -51,19 +58,26 @@ export const MovieView = ({ movies }) => {
         </Row>
         <br />
       </Col>
+
+      <Row className="g-4 mb-5">
+        <h2>Similar movies</h2>
+        {similarMovies.map((movie) => (
+          <Col key={movie.id} md={3} className="movie-card">
+            <MovieCard
+              movie={movie}
+              isFav={favouriteMovies.includes(movie.id)}
+              onFavToggle={onFavToggle}
+            />
+          </Col>
+        ))}
+      </Row>
     </Row>
+    
   );
 };
 
 MovieView.propTypes = {
-  movie: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string,
-    released: PropTypes.string,
-    actors: PropTypes.array,
-    director: PropTypes.string,
-    genre: PropTypes.string,
-    Description: PropTypes.string,
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired,
+ movies: PropTypes.array,
+ favouriteMovies: PropTypes.array,
+ onFavToggle: PropTypes.func
 };

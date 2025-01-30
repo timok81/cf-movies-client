@@ -4,6 +4,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import { ProfileView } from "../profile-view/profile-view";
 import NavigationBar from "../../navigation-bar/navigation-bar";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
@@ -42,114 +43,82 @@ const MainView = () => {
       });
   }, [token]);
 
-  /*
-  return (
-    <>
-      {!user ? (
-        <Row className="justify-content-center">
-          <Row className="justify-content-center">
-            <Col lg={9} className="px-0">
-              <h1 className="welcome mb-0">Welcome to the</h1>
-              <h2 className="title mb-5">Movie database</h2>
-              <hr />
-              <br />
-            </Col>
-          </Row>
+  //Try to delete account
+  function handleDeleteAccount() {
+    fetch(`https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Account has been deleted");
+          setUser(null);
+          setToken(null);
+          localStorage.clear();
+        } else {
+          alert("Failed to delete account");
+        }
+      })
+      .catch((err) => console.error("Request failed:", err));
+  }
 
-          <Col lg={4}>
-            <LoginView
-              onLoggedIn={(user, token) => {
-                setUser(user);
-                setToken(token);
-              }}
-            />
-            <br />
-            <br />
-          </Col>
-          <Col lg={1}></Col>
-          <Col lg={4}>
-            <SignupView />
-          </Col>
-        </Row>
-      ) : selectedMovie ? (
-        <>
-          {(() => {
-            const similarMovies = movies.filter((movie) => {
-              return (
-                movie.genre === selectedMovie.genre &&
-                movie.name !== selectedMovie.name
-              );
-            });
+  //Clicking on fav button
+  function onFavToggle(isFav, movieId) {
+    if (isFav) handleRemoveFromFavs(movieId);
+    else handleAddToFavs(movieId);
+  }
 
-            return (
-              <>
-                <Row>
-                  <Col>
-                    <MovieView
-                      movie={selectedMovie}
-                      onBackClick={() => setSelectedMovie(null)}
-                    />
-                  </Col>
-                </Row>
-                <br />
-                <Row className="g-4">
-                  <h2>Similar movies</h2>
-                  {similarMovies.map((movie) => (
-                    <Col key={movie.id} md={3} className="movie-card">
-                      <MovieCard
-                        movie={movie}
-                        onMovieClick={(newSelectedMovie) => {
-                          setSelectedMovie(newSelectedMovie);
-                        }}
-                      />
-                    </Col>
-                  ))}
-                </Row>
-              </>
-            );
-          })()}
-        </>
-      ) : movies.length === 0 ? (
-        <Row className="justify-content-md-center">
-          <Col>No movies to display</Col>
-        </Row>
-      ) : (
-        <>
-          <Row className="g-4">
-            {movies.map((movie) => {
-              return (
-                <Col key={movie.id} sm={6} md={4} lg={3} className="movie-card">
-                  <MovieCard
-                    movie={movie}
-                    onMovieClick={(newSelectedMovie) => {
-                      setSelectedMovie(newSelectedMovie);
-                    }}
-                  />
-                </Col>
-              );
-            })}
-          </Row>
+  //Try to add movie to favs
+  const handleAddToFavs = (movieId) => {
+    fetch(
+      `https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}/movies/${movieId}`,
+      {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          const updatedUser = {
+            ...user,
+            FavouriteMovies: [...user.FavouriteMovies, movieId],
+          };
+          setUser(updatedUser);
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+          //alert("Movie successfully added to favorites");
+        } else {
+          alert("Failed to add movie to favorites");
+        }
+      })
+      .catch((err) => console.error("Request failed:", err));
+  };
 
-          <Row>
-            <Col className="align-content-md-center">
-              <Button
-                variant="secondary"
-                onClick={() => {
-                  setUser(null);
-                  setToken(null);
-                  localStorage.removeItem("user");
-                  localStorage.removeItem("token");
-                }}
-              >
-                Log out
-              </Button>
-            </Col>
-          </Row>
-        </>
-      )}
-    </>
-  );
-*/
+  //Try to remove movie from favs
+  const handleRemoveFromFavs = (movieId) => {
+    fetch(
+      `https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}/movies/${movieId}`,
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          const updatedUser = {
+            ...user,
+            FavouriteMovies: user.FavouriteMovies.filter(
+              (id) => id !== movieId
+            ),
+          };
+          setUser(updatedUser);
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+          //alert("Movie successfully removed from favorites");
+        } else {
+          alert("Failed to remove movie from favorites");
+        }
+      })
+      .catch((err) => console.error("Request failed:", err));
+  };
 
   return (
     <BrowserRouter>
@@ -218,6 +187,26 @@ const MainView = () => {
               }
             />
             <Route
+              path={`/profile/:userName`}
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" />
+                  ) : (
+                    <Col>
+                      <ProfileView
+                        user={user}
+                        token={token}
+                        movies={movies}
+                        onFavToggle={onFavToggle}
+                        onDeleteAccount={handleDeleteAccount}
+                      />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
               path="/movies/:movieId"
               element={
                 <>
@@ -227,7 +216,11 @@ const MainView = () => {
                     <Col>The list is empty!</Col>
                   ) : (
                     <Col>
-                      <MovieView movies={movies} />
+                      <MovieView
+                        movies={movies}
+                        favouriteMovies={user.FavouriteMovies}
+                        onFavToggle={onFavToggle}
+                      />
                     </Col>
                   )}
                 </>
@@ -242,10 +235,22 @@ const MainView = () => {
                   ) : movies.length === 0 ? (
                     <Col>The list is empty!</Col>
                   ) : (
-                    <Row className="g-4">
+                    <Row className="g-4 justify-content-center">
                       {movies.map((movie) => (
-                        <Col className="mb-4" key={movie.id} md={3}>
-                          <MovieCard movie={movie} />
+                        <Col
+                          className="mb-4"
+                          key={movie.id}
+                          xs={10}
+                          sm={5}
+                          md={4}
+                          lg={4}
+                          xl={3}
+                        >
+                          <MovieCard
+                            movie={movie}
+                            isFav={user.FavouriteMovies.includes(movie.id)}
+                            onFavToggle={onFavToggle}
+                          />
                         </Col>
                       ))}
                     </Row>
