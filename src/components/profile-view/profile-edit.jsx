@@ -4,45 +4,15 @@ import Form from "react-bootstrap/Form";
 import "./profile-view.scss";
 import PropTypes from "prop-types";
 
-export const ProfileEdit = ({ user, token }) => {
+export const ProfileEdit = ({ user, token, handleEditSubmit }) => {
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState("");
   const [focus, setFocus] = useState(null);
 
-  //Try to update user info
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const data = {
-      Username: username,
-      Email: email,
-      ...(password && { Password: password }),
-      ...(birthday && { Birthday: birthday }),
-    };
-
-    fetch(`https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}`, {
-      method: "PUT",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          alert("Profile information succesfully updated");
-          window.location.reload();
-        } else {
-          alert("Profile update unsuccesful");
-        }
-      })
-      .catch((err) => console.error("Request failed: ", err));
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={(event) => handleEditSubmit(event, username, password, email, birthday)}>
       <h2 className="mb-4">Edit profile</h2>
       <Form.Group controlId="formUsername">
         <Form.Label>Change username:</Form.Label>

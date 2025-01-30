@@ -43,6 +43,48 @@ const MainView = () => {
       });
   }, [token]);
 
+  //Try updating user information
+  const handleEditSubmit = (event, username, password, email, birthday) => {
+    event.preventDefault();
+
+    const data = {
+      Username: username,
+      Email: email,
+      ...(password && { Password: password }),
+      ...(birthday && { Birthday: birthday }),
+    };
+
+    fetch(`https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((err) => {
+            throw new Error(
+              err?.errors?.map((e) => e.msg).join(", ") || "Update failed"
+            );
+          });
+        }
+        return response.json();
+      })
+      .then((updatedUser) => {
+        if (updatedUser) {
+          setUser(updatedUser);
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+          alert("Profile information successfully updated");
+        }
+      })
+      .catch((err) => {
+        console.error("Request failed:", err);
+        alert("Profile update failed" + err.message);
+      });
+  };
+
   //Try to delete account
   function handleDeleteAccount() {
     fetch(`https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}`, {
@@ -130,7 +172,7 @@ const MainView = () => {
           localStorage.clear();
         }}
       />
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-center w-100 mx-0">
         <Col md={8}>
           <Routes>
             <Route
@@ -200,6 +242,7 @@ const MainView = () => {
                         movies={movies}
                         onFavToggle={onFavToggle}
                         onDeleteAccount={handleDeleteAccount}
+                        handleEditSubmit={handleEditSubmit}
                       />
                     </Col>
                   )}
@@ -238,7 +281,6 @@ const MainView = () => {
                     <Row className="g-4 justify-content-center">
                       {movies.map((movie) => (
                         <Col
-                          className="mb-4"
                           key={movie.id}
                           xs={10}
                           sm={5}

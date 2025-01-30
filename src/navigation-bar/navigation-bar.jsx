@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 function NavigationBar({ user, onLoggedOut }) {
   return (
-    <Navbar data-bs-theme="dark" expand="lg" className="bg-body-tertiary mb-5">
+    <Navbar data-bs-theme="dark" expand="lg" className="bg-body-tertiary mb-5 w-100">
       <Container fluid>
         <Navbar.Brand href="/">MovieDB</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

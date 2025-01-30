@@ -14,6 +14,7 @@ export const ProfileView = ({
   token,
   onFavToggle,
   onDeleteAccount,
+  handleEditSubmit
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -54,19 +55,17 @@ export const ProfileView = ({
           </Collapse>
         </>
         <hr />
-        <br />
         <Col>
-          <ProfileEdit user={user} token={token} />
+          <ProfileEdit user={user} token={token} handleEditSubmit={handleEditSubmit}/>
         </Col>
         <br />
         <br />
       </Col>
       <hr />
-      <h2 className="mb-0 mt-3">Favourite movies</h2>
+      <h2 className="mb-0 mt-3 text-center">Favourite movies</h2>
       <Row className="g-4 justify-content-center">
         {favMovies.map((movie) => (
           <Col
-            className="mb-4"
             key={movie.id}
             xs={10}
             sm={5}
