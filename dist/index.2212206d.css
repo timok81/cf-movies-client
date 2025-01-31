@@ -13155,6 +13155,10 @@ textarea.form-control-lg {
   }
 }
 
+html {
+  overflow-x: hidden;
+}
+
 .image-wrapper {
   width: 100%;
   padding-top: 150%;
@@ -13168,6 +13172,25 @@ textarea.form-control-lg {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fav-button {
+  z-index: 1;
+  color: #ffae00bf;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.fav-button:hover {
+  color: #ffae00;
 }
 
 .subject {
@@ -13187,11 +13210,6 @@ h4 {
   font-size: 1.25rem;
 }
 
-span {
-  font-size: .75rem;
-  font-weight: normal;
-}
-
 .welcome {
   font-size: 1.75rem;
 }
@@ -13201,7 +13219,8 @@ span {
   font-weight: bold;
 }
 
-.movie-card:hover {
-  cursor: pointer;
+span {
+  font-size: .75rem;
+  font-weight: normal;
 }
 /*# sourceMappingURL=index.2212206d.css.map */
