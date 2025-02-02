@@ -1,19 +1,65 @@
+import "./profile-view.scss";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Toast } from "react-bootstrap";
 import "./profile-view.scss";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
-export const ProfileEdit = ({ user, token, handleEditSubmit }) => {
+export const ProfileEdit = ({ handleEditSubmit }) => {
+  const user = useSelector((state) => state.user.user);
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState("");
   const [focus, setFocus] = useState(null);
 
+  const [showToastSuccess, setShowToastSuccess] = useState(false);
+  const [showToastFailure, setShowToastFailure] = useState(false);
+
+  const handleEdit = (success) => {
+    if (success) {
+      setShowToastSuccess(true);
+      setTimeout(() => setShowToastSuccess(false), 3000);
+    } else {
+      setShowToastFailure(true);
+      setTimeout(() => setShowToastFailure(false), 3000);
+    }
+  };
+
   return (
-    <form onSubmit={(event) => handleEditSubmit(event, username, password, email, birthday)}>
-      <h2 className="mb-4">Edit profile</h2>
+    <form
+      onSubmit={(event) =>
+        handleEditSubmit(event, username, password, email, birthday, handleEdit)
+      }
+    >
+      <h2 className="mb-3">Edit profile</h2>
+
+      <div
+        role="alert"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <Toast
+          show={showToastSuccess}
+          onClose={() => setShowToastSuccess(false)}
+          className="position-absolute top-0 end-0 p-2 text-bg-success"
+          style={{ zIndex: 5 }}
+        >
+          <Toast.Body>Profile updated successfully!</Toast.Body>
+        </Toast>
+
+        <Toast
+          show={showToastFailure}
+          onClose={() => setShowToastFailure(false)}
+          className="position-absolute top-0 end-0 p-2 text-bg-danger"
+          style={{ zIndex: 5 }}
+        >
+          <Toast.Body>Unable to update profile</Toast.Body>
+        </Toast>
+      </div>
+
       <Form.Group controlId="formUsername">
         <Form.Label>Change username:</Form.Label>
         <Form.Control
@@ -83,6 +129,14 @@ export const ProfileEdit = ({ user, token, handleEditSubmit }) => {
       <Button variant="primary" type="submit">
         Save changes
       </Button>
+      {/* {updateSuccess && (
+        <p
+          style={{ color: "SeaGreen" }}
+          className="account-update-notification mb-0"
+        >
+          <strong>Account information updated</strong>
+        </p>
+      )} */}
     </form>
   );
 };

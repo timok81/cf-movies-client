@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import "./movie-card.scss";
 
 //Displays movie list item
 export const MovieCard = ({ movie, isFav, onFavToggle }) => {
+
   return (
     <Card className="h-100 movie-card">
       <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
@@ -15,7 +17,7 @@ export const MovieCard = ({ movie, isFav, onFavToggle }) => {
       <Card.Body className="mb-0">
         <button
           className="fav-button"
-          onClick={() => onFavToggle(isFav, movie.id)}
+          onClick={() => onFavToggle(movie.id)}
         >
           {isFav ? "★" : "☆"}
         </button>

@@ -5,9 +5,12 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./movie-view.scss";
 import { MovieCard } from "../movie-card/movie-card";
+import { useSelector } from "react-redux";
 
-//Displays detailed movie information
-export const MovieView = ({ movies, favouriteMovies, onFavToggle }) => {
+//Displays detailed information
+export const MovieView = ({ favouriteMovies, onFavToggle }) => {
+    const user = useSelector((state) => state.user.user);
+  const movies = useSelector((state) => state.movies.list);
   const { movieId } = useParams();
   const selectedMovie = movies.find((movie) => movie.id === movieId);
 
@@ -43,9 +46,30 @@ export const MovieView = ({ movies, favouriteMovies, onFavToggle }) => {
           <div className="d-flex justify-content-between">
             <div>
               <h4>Director:</h4>
-              <div className="mb-4">{selectedMovie.director}</div>
+              <div className="mb-4">
+                <a
+                  href={`/directors/${encodeURIComponent(
+                    selectedMovie.director
+                  )}`}
+                >
+                  {selectedMovie.director}
+                </a>
+              </div>
               <h4>Cast:</h4>
-              <div>{selectedMovie.actors.join(", ")}</div>
+              {/* <div>{selectedMovie.actors.join(", ")}</div> */}
+              <div>
+                {selectedMovie.actors.map((actor, index) => (
+                  <>
+                    <a
+                      key={actor}
+                      href={`/actors/${encodeURIComponent(actor)}`}
+                    >
+                      {actor}
+                    </a>
+                    {index < selectedMovie.actors.length - 1 && ", "}
+                  </>
+                ))}
+              </div>
             </div>
             <div className="align-content-end">
               <Link to={`/`}>
@@ -65,19 +89,17 @@ export const MovieView = ({ movies, favouriteMovies, onFavToggle }) => {
           <Col key={movie.id} md={3} className="movie-card">
             <MovieCard
               movie={movie}
-              isFav={favouriteMovies.includes(movie.id)}
-              onFavToggle={onFavToggle}
+              isFav={user?.FavouriteMovies?.includes(movie.id) || false}
+              onFavToggle={() => onFavToggle(movie.id, user)}
             />
           </Col>
         ))}
       </Row>
     </Row>
-    
   );
 };
 
 MovieView.propTypes = {
- movies: PropTypes.array,
- favouriteMovies: PropTypes.array,
- onFavToggle: PropTypes.func
+  favouriteMovies: PropTypes.array,
+  onFavToggle: PropTypes.func,
 };
