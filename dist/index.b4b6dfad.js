@@ -18950,6 +18950,7 @@ const MovieView = ({ onFavToggle })=>{
         return movie.genre === selectedMovie.genre && movie.name !== selectedMovie.name;
     });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+        className: "justify-content-center",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 md: 4,
@@ -19126,7 +19127,7 @@ const MovieView = ({ onFavToggle })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "g-4 mb-5",
+                className: "g-4 mb-5 p-0",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: "Similar movies"
@@ -19136,8 +19137,12 @@ const MovieView = ({ onFavToggle })=>{
                         columnNumber: 9
                     }, undefined),
                     similarMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                            md: 3,
-                            className: "movie-card",
+                            className: "",
+                            xs: 12,
+                            sm: 6,
+                            md: 4,
+                            lg: 4,
+                            xl: 3,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movie: movie,
                                 isFav: user?.FavouriteMovies?.includes(movie.id) || false,
@@ -28417,7 +28422,6 @@ var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
-var _react = require("react");
 var _movieCardScss = require("./movie-card.scss");
 const MovieCard = ({ movie, isFav, onFavToggle })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
@@ -28432,17 +28436,17 @@ const MovieCard = ({ movie, isFav, onFavToggle })=>{
                         src: movie.image
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 14,
+                        lineNumber: 13,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 13,
+                    lineNumber: 12,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 12,
+                lineNumber: 11,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -28454,33 +28458,33 @@ const MovieCard = ({ movie, isFav, onFavToggle })=>{
                         children: isFav ? "\u2605" : "\u2606"
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 18,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
                         children: movie.name
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 24,
+                        lineNumber: 23,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
                         children: movie.genre
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 25,
+                        lineNumber: 24,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 17,
+                lineNumber: 16,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 11,
+        lineNumber: 10,
         columnNumber: 5
     }, undefined);
 };
@@ -28506,7 +28510,7 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"81Eh1","react-bootstrap":"3AD9A","./movie-card.scss":"d6HH4","react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8Ngjc","react-router-dom":"fdOAw","react":"21dqq"}],"d6HH4":[function() {},{}],"62sf7":[function(require,module,exports,__globalThis) {
+},{"prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"81Eh1","react-bootstrap":"3AD9A","react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8Ngjc","react-router-dom":"fdOAw","./movie-card.scss":"d6HH4"}],"d6HH4":[function() {},{}],"62sf7":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Provider", ()=>Provider_default);
@@ -34994,7 +34998,7 @@ const PersonCard = ({ person, type })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
         to: `/${dir}/${encodeURIComponent(person.name)}`,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-            className: "h-100",
+            className: "h-100 person-card",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "image-wrapper",
@@ -35084,6 +35088,7 @@ const ActorView = ({ onFavToggle })=>{
     const selectedActor = actors.find((actor)=>actor.name === actorName);
     const starredMovies = movies.filter((movie)=>movie.actors.includes(selectedActor.name));
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+        className: "justify-content-center",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 md: 4,
@@ -35209,7 +35214,7 @@ const ActorView = ({ onFavToggle })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "g-4 mb-5",
+                className: "g-4 mb-5 p-0",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: "Movies"
@@ -35219,8 +35224,12 @@ const ActorView = ({ onFavToggle })=>{
                         columnNumber: 9
                     }, undefined),
                     starredMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                            md: 3,
-                            className: "movie-card",
+                            className: "",
+                            xs: 12,
+                            sm: 6,
+                            md: 4,
+                            lg: 4,
+                            xl: 3,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movie: movie,
                                 isFav: user?.FavouriteMovies?.includes(movie.id) || false,
@@ -35412,7 +35421,7 @@ const GenreCard = ({ genre })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
         to: `/genres/${encodeURIComponent(genre.name)}`,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-            className: "h-100",
+            className: "h-100 genre-card",
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
                 className: "m-0 p-2 text-center",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
@@ -35701,6 +35710,7 @@ const DirectorView = ({ onFavToggle })=>{
     const selectedDirector = directors.find((director)=>director.name === directorName);
     const directedMovies = movies.filter((movie)=>movie.director === selectedDirector.name);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+        className: "justify-content-center",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 md: 4,
@@ -35826,7 +35836,7 @@ const DirectorView = ({ onFavToggle })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "g-4 mb-5",
+                className: "g-4 mb-5 p-0",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: "Movies"
@@ -35836,8 +35846,12 @@ const DirectorView = ({ onFavToggle })=>{
                         columnNumber: 9
                     }, undefined),
                     directedMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                            md: 3,
-                            className: "movie-card",
+                            className: "",
+                            xs: 12,
+                            sm: 6,
+                            md: 4,
+                            lg: 4,
+                            xl: 3,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movie: movie,
                                 isFav: user?.FavouriteMovies?.includes(movie.id) || false,
@@ -35916,6 +35930,7 @@ const GenreView = ({ onFavToggle })=>{
     const selectedGenre = genres.find((genre)=>genre.name === genreName);
     const genreMovies = movies.filter((movie)=>movie.genre === selectedGenre.name);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+        className: "justify-content-center",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 children: [
@@ -36005,7 +36020,7 @@ const GenreView = ({ onFavToggle })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "g-4 mb-5",
+                className: "g-4 mb-5 p-0",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: "Movies in genre"
@@ -36015,8 +36030,12 @@ const GenreView = ({ onFavToggle })=>{
                         columnNumber: 9
                     }, undefined),
                     genreMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                            md: 3,
-                            className: "movie-card",
+                            className: "",
+                            xs: 12,
+                            sm: 6,
+                            md: 4,
+                            lg: 4,
+                            xl: 3,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movie: movie,
                                 isFav: user?.FavouriteMovies?.includes(movie.id) || false,

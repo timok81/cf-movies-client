@@ -21,7 +21,7 @@ export const DirectorView = ({ onFavToggle }) => {
   );
 
   return (
-    <Row>
+    <Row className="justify-content-center">
       <Col md={4} className="mb-4">
         <img
           src={selectedDirector.image}
@@ -55,10 +55,10 @@ export const DirectorView = ({ onFavToggle }) => {
         <br />
       </Col>
 
-      <Row className="g-4 mb-5">
+      <Row className="g-4 mb-5 p-0">
         <h2>Movies</h2>
         {directedMovies.map((movie) => (
-          <Col key={movie.id} md={3} className="movie-card">
+          <Col className="" key={movie.id} xs={12} sm={6} md={4} lg={4} xl={3}>
             <MovieCard
               movie={movie}
               isFav={user?.FavouriteMovies?.includes(movie.id) || false}

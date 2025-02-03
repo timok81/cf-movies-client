@@ -11,7 +11,7 @@ export const PersonCard = ({ person, type }) => {
 
   return (
     <Link to={`/${dir}/${encodeURIComponent(person.name)}`}>
-      <Card className="h-100">
+      <Card className="h-100 person-card">
         <div className="image-wrapper">
           <Card.Img variant="top" src={person.image} />
         </div>

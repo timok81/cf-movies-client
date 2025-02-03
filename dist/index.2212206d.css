@@ -13159,29 +13159,8 @@ html {
   overflow-x: hidden;
 }
 
-span {
-  font-size: .75rem;
-  font-weight: normal;
-}
-
-body {
-  font-family: Lato, sans-serif;
-}
-
-.welcome {
-  font-size: 1.75rem;
-}
-
-.title {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.account-update-notification {
-  background-color: #2e8b57;
-  border-radius: 5px;
-  font-size: 1.25rem;
-  position: absolute;
+.movie-card:hover {
+  box-shadow: 0 3px 10px #00000026;
 }
 
 .image-wrapper {
@@ -13216,6 +13195,31 @@ a {
 
 .fav-button:hover {
   color: #ffae00;
+}
+
+span {
+  font-size: .75rem;
+  font-weight: normal;
+}
+
+body {
+  font-family: Lato, sans-serif;
+}
+
+.welcome {
+  font-size: 1.75rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.account-update-notification {
+  background-color: #2e8b57;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  position: absolute;
 }
 
 .subject {

@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import "./movie-card.scss";
 
 //Displays movie list item
