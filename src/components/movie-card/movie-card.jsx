@@ -7,7 +7,7 @@ import "./movie-card.scss";
 export const MovieCard = ({ movie, isFav, onFavToggle }) => {
 
   return (
-    <Card className="h-100 movie-card">
+    <Card className="h-100 movie-card border-0">
       <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
         <div className="image-wrapper">
           <Card.Img variant="top" src={movie.image} />
