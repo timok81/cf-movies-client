@@ -35650,12 +35650,11 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _reactRouterDom = require("react-router-dom");
 var _directorViewScss = require("./director-view.scss");
 var _movieCard = require("../movie-card/movie-card");
 var _reactRedux = require("react-redux");
+var _backButton = require("../back-button/back-button");
 var _s = $RefreshSig$();
 const DirectorView = ({ onFavToggle })=>{
     _s();
@@ -35664,7 +35663,6 @@ const DirectorView = ({ onFavToggle })=>{
     const movies = (0, _reactRedux.useSelector)((state)=>state.movies.list);
     const { directorName } = (0, _reactRouterDom.useParams)();
     const selectedDirector = directors.find((director)=>director.name === directorName);
-    const navigate = (0, _reactRouterDom.useNavigate)();
     const directedMovies = movies.filter((movie)=>movie.director === selectedDirector.name);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
         children: [
@@ -35677,12 +35675,12 @@ const DirectorView = ({ onFavToggle })=>{
                     alt: `${selectedDirector.name} poster`
                 }, void 0, false, {
                     fileName: "src/components/director-view/director-view.jsx",
-                    lineNumber: 27,
+                    lineNumber: 26,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/director-view/director-view.jsx",
-                lineNumber: 26,
+                lineNumber: 25,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -35698,17 +35696,17 @@ const DirectorView = ({ onFavToggle })=>{
                                         children: selectedDirector.name
                                     }, void 0, false, {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 38,
+                                        lineNumber: 37,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 37,
+                                    lineNumber: 36,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 40,
+                                    lineNumber: 39,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35718,30 +35716,30 @@ const DirectorView = ({ onFavToggle })=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 41,
+                                    lineNumber: 40,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 43,
+                                    lineNumber: 42,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     children: selectedDirector.bio
                                 }, void 0, false, {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 44,
+                                    lineNumber: 43,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 36,
+                            lineNumber: 35,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 35,
+                        lineNumber: 34,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -35750,39 +35748,35 @@ const DirectorView = ({ onFavToggle })=>{
                             className: "d-flex justify-content-between",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "align-content-end",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                    variant: "outline-secondary",
-                                    onClick: ()=>navigate(-1),
-                                    children: "Back"
-                                }, void 0, false, {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _backButton.BackButton), {}, void 0, false, {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 50,
+                                    lineNumber: 49,
                                     columnNumber: 15
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 49,
+                                lineNumber: 48,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 48,
+                            lineNumber: 47,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 47,
+                        lineNumber: 46,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 59,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/director-view/director-view.jsx",
-                lineNumber: 34,
+                lineNumber: 33,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -35792,7 +35786,7 @@ const DirectorView = ({ onFavToggle })=>{
                         children: "Movies"
                     }, void 0, false, {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 63,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, undefined),
                     directedMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -35804,34 +35798,33 @@ const DirectorView = ({ onFavToggle })=>{
                                 onFavToggle: ()=>onFavToggle(movie.id, user)
                             }, void 0, false, {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 66,
+                                lineNumber: 60,
                                 columnNumber: 13
                             }, undefined)
                         }, movie.id, false, {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 65,
+                            lineNumber: 59,
                             columnNumber: 11
                         }, undefined))
                 ]
             }, void 0, true, {
                 fileName: "src/components/director-view/director-view.jsx",
-                lineNumber: 62,
+                lineNumber: 56,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/director-view/director-view.jsx",
-        lineNumber: 25,
+        lineNumber: 24,
         columnNumber: 5
     }, undefined);
 };
-_s(DirectorView, "2Jh+uAR0rgWp60ZerIhPjbaH/Sg=", false, function() {
+_s(DirectorView, "nqtBqtL/oHOWmCvErfIpVFo3IyU=", false, function() {
     return [
         (0, _reactRedux.useSelector),
         (0, _reactRedux.useSelector),
         (0, _reactRedux.useSelector),
-        (0, _reactRouterDom.useParams),
-        (0, _reactRouterDom.useNavigate)
+        (0, _reactRouterDom.useParams)
     ];
 });
 _c = DirectorView;
@@ -35846,7 +35839,7 @@ $RefreshReg$(_c, "DirectorView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","react-bootstrap":"3AD9A","react-bootstrap/Button":"aPzUt","react-router-dom":"fdOAw","./director-view.scss":"cVy0f","../movie-card/movie-card":"bwuIu","react-redux":"62sf7","@parcel/transformer-js/src/esmodule-helpers.js":"81Eh1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8Ngjc"}],"cVy0f":[function() {},{}],"4tuA0":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","react-bootstrap":"3AD9A","react-router-dom":"fdOAw","./director-view.scss":"cVy0f","../movie-card/movie-card":"bwuIu","react-redux":"62sf7","@parcel/transformer-js/src/esmodule-helpers.js":"81Eh1","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"8Ngjc","../back-button/back-button":"brz6S"}],"cVy0f":[function() {},{}],"4tuA0":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$377f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

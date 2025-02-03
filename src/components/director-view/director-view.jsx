@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./director-view.scss";
 import { MovieCard } from "../movie-card/movie-card";
 import { useSelector } from "react-redux";
+import { BackButton } from "../back-button/back-button";
 
 //Displays detailed information
 export const DirectorView = ({ onFavToggle }) => {
@@ -15,7 +15,6 @@ export const DirectorView = ({ onFavToggle }) => {
   const selectedDirector = directors.find(
     (director) => director.name === directorName
   );
-  const navigate = useNavigate();
 
   const directedMovies = movies.filter(
     (movie) => movie.director === selectedDirector.name
@@ -47,12 +46,7 @@ export const DirectorView = ({ onFavToggle }) => {
         <Row className="h-50 d-flex align-content-end pb-4">
           <div className="d-flex justify-content-between">
             <div className="align-content-end">
-              <Button
-                variant="outline-secondary"
-                onClick={() => navigate(-1)}
-              >
-                Back
-              </Button>
+              <BackButton />
             </div>
           </div>
         </Row>
