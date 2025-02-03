@@ -135,6 +135,16 @@ const MainView = () => {
       });
   }, [token]);
 
+  const RedirectToSwagger = () => {
+    useEffect(() => {
+      window.location.replace(
+        "https://moviemovie-7703363b92cb.herokuapp.com/api-documentation"
+      );
+    }, []);
+
+    return null;
+  };
+
   //Try updating user information
   const handleEditSubmit = (
     event,
@@ -266,6 +276,7 @@ const MainView = () => {
       <Row className="justify-content-center w-100 mx-0">
         <Col md={8}>
           <Routes>
+            <Route path="/api-documentation" element={<RedirectToSwagger />} />
             <Route
               path="/signup"
               element={
@@ -411,9 +422,7 @@ const MainView = () => {
             <Route
               path="/genres"
               element={
-                <>
-                  {!user ? <Navigate to="/login" replace /> : <GenreList />}
-                </>
+                <>{!user ? <Navigate to="/login" replace /> : <GenreList />}</>
               }
             />
             <Route
