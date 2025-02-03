@@ -14,11 +14,14 @@ import { setActors } from "../../redux/reducers/actors";
 import { setDirectors } from "../../redux/reducers/directors";
 import { setToken, setUser } from "../../redux/reducers/user/user";
 import { MovieList } from "../movie-list/movie-list";
+import { GenreList } from "../genre-list/genre-list";
 import { ActorList } from "../actor-list/actor-list";
 import { ActorView } from "../actor-view/actor-view";
 import { setDirectors } from "../../redux/reducers/directors";
 import { DirectorList } from "../director-list/director-list";
 import { DirectorView } from "../director-view/director-view";
+import { setGenres } from "../../redux/reducers/genres";
+import { GenreView } from "../genre-view/genre-view";
 
 const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -26,6 +29,7 @@ const MainView = () => {
   const movies = useSelector((state) => state.movies.list);
   const actors = useSelector((state) => state.actors.list);
   const directors = useSelector((state) => state.directors.list);
+  const genres = useSelector((state) => state.genres.list);
 
   const user = storedUser
     ? storedUser
@@ -35,11 +39,6 @@ const MainView = () => {
     ? storedToken
     : useSelector((state) => state.user.token);
   const dispatch = useDispatch();
-
-  //For debugging
-  // useEffect(() => {
-  //   console.log("Redux User State:", user);
-  // }, [user]);
 
   //Make sure user/token are up to date
   useEffect(() => {
@@ -52,7 +51,7 @@ const MainView = () => {
     }
   }, [dispatch]);
 
-  //Fetch movies/directors from api
+  //Fetch movies/directors/genres from api
   useEffect(() => {
     if (!token) return;
 
@@ -76,6 +75,7 @@ const MainView = () => {
           };
         });
 
+        //Extract directors from movies
         const directorsFromMovies = movies.map((obj) => {
           return {
             name: obj.Director.Name,
@@ -87,12 +87,27 @@ const MainView = () => {
         });
 
         const objToId = ({ name }) => `${name}`;
-        const ids = directorsFromMovies.map(objToId);
+
+        const directorIds = directorsFromMovies.map(objToId);
         const filteredDirectors = directorsFromMovies.filter(
-          (item, index) => !ids.includes(objToId(item), index + 1)
+          (item, index) => !directorIds.includes(objToId(item), index + 1)
+        );
+
+        //Extract genres from movies
+        const genresFromMovies = movies.map((obj) => {
+          return {
+            name: obj.Genre.Name,
+            description: obj.Genre.Description,
+          };
+        });
+
+        const genreIds = genresFromMovies.map(objToId);
+        const filteredGenres = genresFromMovies.filter(
+          (item, index) => !genreIds.includes(objToId(item), index + 1)
         );
 
         dispatch(setDirectors(filteredDirectors));
+        dispatch(setGenres(filteredGenres));
         dispatch(setMovies(moviesFromApi));
       });
   }, [token]);
@@ -385,6 +400,33 @@ const MainView = () => {
                   ) : (
                     <Col>
                       <DirectorView
+                        favouriteMovies={user.FavouriteMovies}
+                        onFavToggle={handleFavToggle}
+                      />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/genres"
+              element={
+                <>
+                  {!user ? <Navigate to="/login" replace /> : <GenreList />}
+                </>
+              }
+            />
+            <Route
+              path="/genres/:genreName"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : genres.length === 0 ? (
+                    <Col>Loading genre...</Col>
+                  ) : (
+                    <Col>
+                      <GenreView
                         favouriteMovies={user.FavouriteMovies}
                         onFavToggle={handleFavToggle}
                       />

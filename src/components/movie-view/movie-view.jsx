@@ -1,15 +1,14 @@
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import "./movie-view.scss";
 import { MovieCard } from "../movie-card/movie-card";
 import { useSelector } from "react-redux";
+import { BackButton } from "../back-button/back-button";
 
 //Displays detailed information
-export const MovieView = ({ favouriteMovies, onFavToggle }) => {
-    const user = useSelector((state) => state.user.user);
+export const MovieView = ({ onFavToggle }) => {
+  const user = useSelector((state) => state.user.user);
   const movies = useSelector((state) => state.movies.list);
   const { movieId } = useParams();
   const selectedMovie = movies.find((movie) => movie.id === movieId);
@@ -56,7 +55,6 @@ export const MovieView = ({ favouriteMovies, onFavToggle }) => {
                 </a>
               </div>
               <h4>Cast:</h4>
-              {/* <div>{selectedMovie.actors.join(", ")}</div> */}
               <div>
                 {selectedMovie.actors.map((actor, index) => (
                   <>
@@ -72,11 +70,7 @@ export const MovieView = ({ favouriteMovies, onFavToggle }) => {
               </div>
             </div>
             <div className="align-content-end">
-              <Link to={`/`}>
-                <Button variant="outline-secondary" size="lg">
-                  Back
-                </Button>
-              </Link>
+              <BackButton />
             </div>
           </div>
         </Row>
@@ -100,6 +94,5 @@ export const MovieView = ({ favouriteMovies, onFavToggle }) => {
 };
 
 MovieView.propTypes = {
-  favouriteMovies: PropTypes.array,
   onFavToggle: PropTypes.func,
 };

@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { MovieFilter } from "../movie-filter/movie-filter";
 import { MovieCard } from "../movie-card/movie-card";
+import PropTypes from "prop-types";
 
 export const MovieList = ({ onFavToggle }) => {
   const movies = useSelector((state) => state.movies.list);
@@ -50,4 +51,8 @@ export const MovieList = ({ onFavToggle }) => {
       </Row>
     </>
   );
+};
+
+MovieList.propTypes = {
+  onFavToggle: PropTypes.func,
 };

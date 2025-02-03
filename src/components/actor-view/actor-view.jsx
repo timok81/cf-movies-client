@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import "./actor-view.scss";
 import { MovieCard } from "../movie-card/movie-card";
 import { useSelector } from "react-redux";
+import { BackButton } from "../back-button/back-button";
 
 //Displays detailed information
-export const ActorView = ({ favouriteMovies, onFavToggle }) => {
+export const ActorView = ({ onFavToggle }) => {
+  const user = useSelector((state) => state.user.user);
   const actors = useSelector((state) => state.actors.list);
   const movies = useSelector((state) => state.movies.list);
   const { actorName } = useParams();
@@ -36,7 +36,7 @@ export const ActorView = ({ favouriteMovies, onFavToggle }) => {
             </div>
             <hr />
             <div>Born: {selectedActor.birth}</div>
-            
+
             <br />
             <div>{selectedActor.bio}</div>
           </Col>
@@ -44,11 +44,7 @@ export const ActorView = ({ favouriteMovies, onFavToggle }) => {
         <Row className="h-50 d-flex align-content-end pb-4">
           <div className="d-flex justify-content-between">
             <div className="align-content-end">
-              <Link to={`/`}>
-                <Button variant="outline-secondary" size="lg">
-                  Back
-                </Button>
-              </Link>
+              <BackButton/>
             </div>
           </div>
         </Row>
@@ -61,8 +57,8 @@ export const ActorView = ({ favouriteMovies, onFavToggle }) => {
           <Col key={movie.id} md={3} className="movie-card">
             <MovieCard
               movie={movie}
-              isFav={favouriteMovies.includes(movie.id)}
-              onFavToggle={onFavToggle}
+              isFav={user?.FavouriteMovies?.includes(movie.id) || false}
+              onFavToggle={() => onFavToggle(movie.id, user)}
             />
           </Col>
         ))}
@@ -72,6 +68,5 @@ export const ActorView = ({ favouriteMovies, onFavToggle }) => {
 };
 
 ActorView.propTypes = {
-  favouriteMovies: PropTypes.array,
   onFavToggle: PropTypes.func,
 };

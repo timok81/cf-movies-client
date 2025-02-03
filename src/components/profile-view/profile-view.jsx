@@ -90,8 +90,7 @@ export const ProfileView = ({
 };
 
 ProfileView.propTypes = {
-  user: PropTypes.object,
-  movies: PropTypes.array,
   onFavToggle: PropTypes.func,
   onDeleteAccount: PropTypes.func,
+  handleEditSubmit: PropTypes.func,
 };

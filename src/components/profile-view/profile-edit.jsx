@@ -142,6 +142,5 @@ export const ProfileEdit = ({ handleEditSubmit }) => {
 };
 
 ProfileEdit.propTypes = {
-  user: PropTypes.object,
-  token: PropTypes.string,
+  handleEditSubmit: PropTypes.func,
 };

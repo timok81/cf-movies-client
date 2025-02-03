@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./person-card.scss"
+import "./person-card.scss";
 
 //Displays person list item
 export const PersonCard = ({ person, type }) => {
@@ -11,8 +11,8 @@ export const PersonCard = ({ person, type }) => {
 
   return (
     <Link to={`/${dir}/${encodeURIComponent(person.name)}`}>
-      <Card className="h-100 movie-card">
-      <div className="image-wrapper">
+      <Card className="h-100">
+        <div className="image-wrapper">
           <Card.Img variant="top" src={person.image} />
         </div>
         <Card.Body className="mb-0 text-center">
@@ -30,4 +30,5 @@ PersonCard.propTypes = {
     birth: PropTypes.string,
     death: PropTypes.array,
   }).isRequired,
+  type: PropTypes.bool,
 };

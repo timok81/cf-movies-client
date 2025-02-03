@@ -29,8 +29,10 @@ function NavigationBar() {
             {user && (
               <>
                 <Nav.Link href="/">Movies</Nav.Link>
+                <Nav.Link href="/genres">Genres</Nav.Link>
                 <Nav.Link href="/directors">Directors</Nav.Link>
                 <Nav.Link href="/actors">Actors</Nav.Link>
+                " "
                 <Nav.Link href={`/profile/${user.Username}`}>Profile</Nav.Link>
                 <Nav.Link
                   onClick={() => {
