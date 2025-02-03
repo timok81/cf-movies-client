@@ -36,7 +36,9 @@ export const ActorView = ({ onFavToggle }) => {
             </div>
             <hr />
             <div>Born: {selectedActor.birth}</div>
-
+            {selectedActor.death !== null && (
+              <div>Died: {selectedActor.death}</div>
+            )}
             <br />
             <div>{selectedActor.bio}</div>
           </Col>
@@ -44,7 +46,7 @@ export const ActorView = ({ onFavToggle }) => {
         <Row className="h-50 d-flex align-content-end pb-4">
           <div className="d-flex justify-content-between">
             <div className="align-content-end">
-              <BackButton/>
+              <BackButton />
             </div>
           </div>
         </Row>

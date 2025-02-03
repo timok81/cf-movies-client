@@ -38,7 +38,9 @@ export const DirectorView = ({ onFavToggle }) => {
             </div>
             <hr />
             <div>Born: {selectedDirector.birth}</div>
-
+            {selectedDirector.death !== null && (
+              <div>Died: {selectedDirector.death}</div>
+            )}
             <br />
             <div>{selectedDirector.bio}</div>
           </Col>

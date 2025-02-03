@@ -20,13 +20,13 @@ export const MovieList = ({ onFavToggle }) => {
   );
 
   return (
-    <>
+    <Row className="justify-content-center">
       <Row className="justify-content-center mb-5">
         <Col xs={10} sm={8} lg={6}>
           <MovieFilter />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="">
         {movies.length === 0 ? (
           <Col className="text-center">Loading movies...</Col>
         ) : (
@@ -34,8 +34,8 @@ export const MovieList = ({ onFavToggle }) => {
             <Col
               className="mb-4"
               key={movie.id}
-              xs={10}
-              sm={5}
+              xs={12}
+              sm={6}
               md={4}
               lg={4}
               xl={3}
@@ -49,7 +49,7 @@ export const MovieList = ({ onFavToggle }) => {
           ))
         )}
       </Row>
-    </>
+    </Row>
   );
 };
 

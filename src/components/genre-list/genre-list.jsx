@@ -22,7 +22,7 @@ export const GenreList = () => {
           <GenreFilter />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="">
         {genres.length === 0 ? (
           <Col className="text-center">Loading genres...</Col>
         ) : (
@@ -30,8 +30,8 @@ export const GenreList = () => {
             <Col
               className="mb-4"
               key={genre.name}
-              xs={10}
-              sm={5}
+              xs={12}
+              sm={6}
               md={4}
               lg={4}
               xl={3}

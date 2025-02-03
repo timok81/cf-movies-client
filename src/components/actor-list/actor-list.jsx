@@ -22,7 +22,7 @@ export const ActorList = () => {
           <ActorFilter />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="">
         {actors.length === 0 ? (
           <Col className="text-center">Loading actors...</Col>
         ) : (
@@ -30,8 +30,8 @@ export const ActorList = () => {
             <Col
               className="mb-4"
               key={actor.id}
-              xs={10}
-              sm={5}
+              xs={12}
+              sm={6}
               md={4}
               lg={3}
               xl={2}

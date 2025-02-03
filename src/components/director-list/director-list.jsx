@@ -22,7 +22,7 @@ export const DirectorList = () => {
           <DirectorFilter />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="">
         {directors.length === 0 ? (
           <Col className="text-center">Loading directors...</Col>
         ) : (
@@ -30,8 +30,8 @@ export const DirectorList = () => {
             <Col
               className="mb-4"
               key={director.name}
-              xs={10}
-              sm={5}
+              xs={12}
+              sm={6}
               md={4}
               lg={3}
               xl={2}
