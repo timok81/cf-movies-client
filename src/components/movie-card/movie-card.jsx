@@ -5,8 +5,9 @@ import "./movie-card.scss";
 
 //Displays movie list item
 export const MovieCard = ({ movie, isFav, onFavToggle }) => {
+
   return (
-    <Card className="h-100 movie-card">
+    <Card className="h-100 movie-card border-0">
       <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
         <div className="image-wrapper">
           <Card.Img variant="top" src={movie.image} />
@@ -15,7 +16,7 @@ export const MovieCard = ({ movie, isFav, onFavToggle }) => {
       <Card.Body className="mb-0">
         <button
           className="fav-button"
-          onClick={() => onFavToggle(isFav, movie.id)}
+          onClick={() => onFavToggle(movie.id)}
         >
           {isFav ? "★" : "☆"}
         </button>

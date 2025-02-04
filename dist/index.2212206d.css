@@ -13159,6 +13159,62 @@ html {
   overflow-x: hidden;
 }
 
+.movie-card {
+  box-shadow: 0 1px 5px #00000026;
+}
+
+.movie-card:hover {
+  box-shadow: 0 3px 10px #00000026;
+}
+
+.fav-button {
+  z-index: 1;
+  color: #ffae00bf;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.fav-button:hover {
+  color: #ffae00;
+}
+
+span {
+  font-size: .75rem;
+  font-weight: normal;
+}
+
+body {
+  font-family: Lato, sans-serif;
+}
+
+.welcome {
+  font-size: 1.75rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.account-update-notification {
+  background-color: #2e8b57;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  position: absolute;
+}
+
+.person-card {
+  box-shadow: 0 1px 5px #00000026;
+}
+
+.person-card:hover {
+  box-shadow: 0 3px 10px #00000026;
+}
+
 .image-wrapper {
   width: 100%;
   padding-top: 150%;
@@ -13178,19 +13234,12 @@ a {
   text-decoration: none;
 }
 
-.fav-button {
-  z-index: 1;
-  color: #ffae00bf;
-  background: none;
-  border: none;
-  font-size: 3rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.genre-card {
+  box-shadow: 0 1px 5px #00000026;
 }
 
-.fav-button:hover {
-  color: #ffae00;
+.genre-card:hover {
+  box-shadow: 0 3px 10px #00000026;
 }
 
 .subject {
@@ -13208,19 +13257,5 @@ h3 {
 
 h4 {
   font-size: 1.25rem;
-}
-
-.welcome {
-  font-size: 1.75rem;
-}
-
-.title {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-span {
-  font-size: .75rem;
-  font-weight: normal;
 }
 /*# sourceMappingURL=index.2212206d.css.map */
