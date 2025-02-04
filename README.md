@@ -7,7 +7,7 @@ A React-based movie database app where users can register and manage their accou
 ## Installation
 
  - First, make sure you have npm installed
- - Clone the repository: <code>git clone https://github.com/<your-username>/cf-movies-client</code>
+ - Clone the repository: <code>git clone https://github.com/your-username/cf-movies-client.git</code>
  - Navigate to project directory
  - Run <code>npm install</code> to install dependencies
  - Run <code>npm start</code> to build project and start server
