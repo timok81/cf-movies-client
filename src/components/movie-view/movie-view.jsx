@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import "./movie-view.scss";
+import { useParams, useNavigate } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 import { useSelector } from "react-redux";
 import { BackButton } from "../back-button/back-button";
+import Button from "react-bootstrap/Button";
 
 //Displays detailed information
 export const MovieView = ({ onFavToggle }) => {
+  const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
   const movies = useSelector((state) => state.movies.list);
   const { movieId } = useParams();
@@ -19,63 +20,100 @@ export const MovieView = ({ onFavToggle }) => {
     );
   });
 
-  return (
-    <Row className="justify-content-center">
-      <Col md={4} className="mb-4">
-        <img
-          src={selectedMovie.image}
-          className="w-100 rounded"
-          alt={`${selectedMovie.name} poster`}
-        />
-      </Col>
+  const isFav = user?.FavouriteMovies?.includes(selectedMovie.id) || false;
 
-      <Col>
-        <Row className="h-50 align-content-start">
-          <Col>
-            <div className="d-flex justify-content-between align-items-center">
-              <h1 className="fw-bold">{selectedMovie.name}</h1>
-              <h2 className="text-muted">{selectedMovie.released}</h2>
-            </div>
-            <h3 className="mb-4 text-muted">{selectedMovie.genre}</h3>
-            <hr />
-            <div>{selectedMovie.description}</div>
-          </Col>
-        </Row>
-        <Row className="h-50 d-flex align-content-end pb-4">
-          <div className="d-flex justify-content-between">
-            <div>
-              <h4>Director:</h4>
-              <div className="mb-4">
-                <a
-                  href={`/directors/${encodeURIComponent(
-                    selectedMovie.director
-                  )}`}
-                >
-                  {selectedMovie.director}
-                </a>
-              </div>
-              <h4>Cast:</h4>
-              <div>
-                {selectedMovie.actors.map((actor, index) => (
-                  <>
-                    <a
-                      key={actor}
-                      href={`/actors/${encodeURIComponent(actor)}`}
-                    >
-                      {actor}
-                    </a>
-                    {index < selectedMovie.actors.length - 1 && ", "}
-                  </>
-                ))}
-              </div>
-            </div>
-            <div className="align-content-end">
-              <BackButton />
-            </div>
+  return (
+    <Row className="justify-content-center mx-1">
+      <Row className="mb-3">
+        <div className="d-flex justify-content-between align-items-center">
+          <div className="d-flex align-items-center">
+            <BackButton />
+            <h1 className="fw-bold ms-2">{selectedMovie.name}</h1>
           </div>
-        </Row>
-        <br />
-      </Col>
+          <h2 className="text-muted">{selectedMovie.released}</h2>
+        </div>
+      </Row>
+
+      <Row className="rounded p-3 movie-view-main">
+        <Col md={4} className="p-0">
+          <img
+            src={selectedMovie.image}
+            className="w-100 rounded"
+            alt={`${selectedMovie.name} poster`}
+          />
+        </Col>
+        <Col className="p-3">
+          <Row className="h-25">
+            <Col>
+              <div>{selectedMovie.description}</div>
+            </Col>
+          </Row>
+          <Row className="h-75 d-flex align-content-end">
+            <div className="d-flex justify-content-between">
+              <div className="w-100">
+                <hr />
+                <h4 className="fw-bold">Genre:</h4>
+                <div className="mb-3">
+                  <Button
+                    variant="dark"
+                    className="px-2 py-0 me-2"
+                    onClick={() =>
+                      navigate(
+                        `/genres/${encodeURIComponent(selectedMovie.genre)}`
+                      )
+                    }
+                  >
+                    {selectedMovie.genre}
+                  </Button>
+                </div>
+                <h4 className="fw-bold">Director:</h4>
+                <div className="mb-3">
+                  <Button
+                    variant="dark"
+                    className="px-2 py-0 me-2"
+                    onClick={() =>
+                      navigate(
+                        `/directors/${encodeURIComponent(
+                          selectedMovie.director
+                        )}`
+                      )
+                    }
+                  >
+                    {selectedMovie.director}
+                  </Button>
+                </div>
+                <h4 className="fw-bold">Cast:</h4>
+                <div>
+                  {selectedMovie.actors.map((actor, index) => (
+                    <>
+                      <Button
+                        key={index}
+                        variant="dark"
+                        className="px-2 py-0 me-2 mb-2"
+                        onClick={() =>
+                          navigate(`/actors/${encodeURIComponent(actor)}`)
+                        }
+                      >
+                        {actor}
+                      </Button>
+                    </>
+                  ))}
+                </div>
+              </div>
+              <div className="align-content-end">
+                <button
+                  className="fav-buttonB"
+                  onClick={() => onFavToggle(selectedMovie.id, user)}
+                  title="Add to favourites"
+                >
+                  {isFav ? "★" : "☆"}
+                </button>
+              </div>
+            </div>
+          </Row>
+          <br />
+        </Col>
+      </Row>
 
       <Row className="g-4 mb-5 p-0">
         <h2>Similar movies</h2>

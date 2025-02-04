@@ -1,5 +1,101 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 html {
-  overflow-x: hidden
+  overflow-x: hidden;
+}
+
+.footer {
+  max-height: 5rem;
+  background-color: rgb(33, 37, 41);
+  font-size: 0.75rem;
+  color: rgb(168, 168, 168);
+}
+
+.content-row {
+  min-height: 100vh;
+}
+
+.back-button {
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.movie-card,
+.person-card,
+.genre-card {
+  box-shadow: 0px 1px 5px rgb(0, 0, 0, 0.25);
+  transition: transform 0.3s;
+  will-change: transform;
+}
+
+.movie-card:hover,
+.person-card:hover,
+.genre-card:hover {
+  box-shadow: 0px 3px 10px rgb(0, 0, 0, 0.25);
+  transform: scale(105%);
+}
+
+.movie-view-main {
+  box-shadow: 0px 3px 10px rgb(0, 0, 0, 0.15);
+  background-image: linear-gradient(
+    rgb(255, 255, 255, 0),
+    rgb(33, 37, 41, 0.05)
+  );
+}
+
+.fav-button {
+  font-size: 3rem;
+  position: absolute;
+  border: none;
+  background: none;
+  right: 0;
+  bottom: -0.75rem;
+  z-index: 1;
+  color: rgba(255, 174, 0, 0.75);
+}
+
+.fav-button:hover {
+  color: rgb(255, 174, 0, 1);
+}
+
+.fav-buttonB {
+  font-size: 4rem;
+  border: none;
+  background: none;
+  z-index: 1;
+  color: rgba(255, 174, 0, 0.75);
+}
+
+.fav-buttonB:hover {
+  color: rgb(255, 174, 0, 1);
+}
+
+body {
+  font-family: "Liter", serif;
+  background-color: white;
+}
+
+.welcome {
+  font-size: 1.75rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.featured-movie {
+  background-image: url("https://image.tmdb.org/t/p/w600_and_h900_bestv2/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+  min-height: 25rem;
+  position: relative;
+}
+
+.featured-opacity {
+  background-color: rgb(255, 255, 255, 0.5);
+  position: absolute;
+  min-height: 25rem;
+  z-index: 1;
 }

@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import { MovieFilter } from "../movie-filter/movie-filter";
 import { MovieCard } from "../movie-card/movie-card";
 import PropTypes from "prop-types";
+import { FeaturedView } from "../featured-view/featured-view";
 
 export const MovieList = ({ onFavToggle }) => {
   const movies = useSelector((state) => state.movies.list);
@@ -16,7 +17,8 @@ export const MovieList = ({ onFavToggle }) => {
   const filteredMovies = movies.filter(
     (movie) =>
       movie.name.toLowerCase().includes(filter) ||
-      movie.genre.toLowerCase().includes(filter)
+      movie.genre.toLowerCase().includes(filter) ||
+      movie.director.toLowerCase().includes(filter)
   );
 
   return (
@@ -26,7 +28,7 @@ export const MovieList = ({ onFavToggle }) => {
           <MovieFilter />
         </Col>
       </Row>
-      <Row className="">
+      <Row className="mb-4">
         {movies.length === 0 ? (
           <Col className="text-center">Loading movies...</Col>
         ) : (

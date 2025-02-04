@@ -7,7 +7,6 @@ import { ProfileView } from "../profile-view/profile-view";
 import NavigationBar from "../../navigation-bar/navigation-bar";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
-import "./main-view.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { setMovies } from "../../redux/reducers/movies";
 import { setActors } from "../../redux/reducers/actors";
@@ -22,6 +21,7 @@ import { DirectorList } from "../director-list/director-list";
 import { DirectorView } from "../director-view/director-view";
 import { setGenres } from "../../redux/reducers/genres";
 import { GenreView } from "../genre-view/genre-view";
+import { Footer } from "../footer/footer";
 
 const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -72,6 +72,7 @@ const MainView = () => {
               return actor.Name;
             }),
             description: obj.Description,
+            featured: obj.Featured,
           };
         });
 
@@ -273,7 +274,7 @@ const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar />
-      <Row className="justify-content-center w-100 mx-0">
+      <Row className="justify-content-center w-100 mx-0 content-row">
         <Col md={8}>
           <Routes>
             <Route path="/api-documentation" element={<RedirectToSwagger />} />
@@ -459,6 +460,7 @@ const MainView = () => {
           </Routes>
         </Col>
       </Row>
+      <Footer />
     </BrowserRouter>
   );
 };

@@ -4,8 +4,8 @@ import Button from "react-bootstrap/Button";
 export const BackButton = () => {
   const navigate = useNavigate();
   return (
-    <Button variant="outline-secondary" onClick={() => navigate(-1)}>
-      Back
+    <Button variant="link" onClick={() => navigate(-1)} className="back-button link-secondary p-0">
+      ⭠
     </Button>
   );
 }

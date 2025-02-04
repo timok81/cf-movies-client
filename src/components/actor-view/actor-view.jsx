@@ -19,39 +19,41 @@ export const ActorView = ({ onFavToggle }) => {
   );
 
   return (
-    <Row className="justify-content-center">
-      <Col md={4} className="mb-4">
-        <img
-          src={selectedActor.image}
-          className="w-100 rounded"
-          alt={`${selectedActor.name} poster`}
-        />
-      </Col>
-
-      <Col>
-        <Row className="h-50 align-content-start">
-          <Col>
-            <div className="d-flex justify-content-between align-items-center">
-              <h1 className="fw-bold">{selectedActor.name}</h1>
-            </div>
-            <hr />
-            <div>Born: {selectedActor.birth}</div>
-            {selectedActor.death !== null && (
-              <div>Died: {selectedActor.death}</div>
-            )}
-            <br />
-            <div>{selectedActor.bio}</div>
-          </Col>
-        </Row>
-        <Row className="h-50 d-flex align-content-end pb-4">
-          <div className="d-flex justify-content-between">
-            <div className="align-content-end">
-              <BackButton />
-            </div>
-          </div>
-        </Row>
-        <br />
-      </Col>
+    <Row className="justify-content-center mx-1">
+      <Row className="border rounded p-3 movie-view-main">
+        <Col md={4} className="mb-4">
+          <img
+            src={selectedActor.image}
+            className="w-100 rounded"
+            alt={`${selectedActor.name} poster`}
+          />
+        </Col>
+        <Col>
+          <Row className="h-50 align-content-start">
+            <Col>
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex align-items-center">
+                  <BackButton />
+                  <h1 className="fw-bold ms-2">{selectedActor.name}</h1>
+                </div>
+              </div>
+              <hr />
+              <div className="d-flex">
+                <div className="fw-bold me-2">Born:</div> {selectedActor.birth}
+              </div>
+              {selectedActor.death !== null && (
+                <div className="d-flex"><div className="fw-bold me-2">Died:</div> {selectedActor.death}</div>
+              )}
+              <br />
+              <div>{selectedActor.bio}</div>
+            </Col>
+          </Row>
+          <Row className="h-50 d-flex align-content-end pb-4">
+            <div className="d-flex justify-content-between"></div>
+          </Row>
+          <br />
+        </Col>
+      </Row>
 
       <Row className="g-4 mb-5 p-0">
         <h2>Movies</h2>

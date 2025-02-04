@@ -13,14 +13,14 @@ export const MovieCard = ({ movie, isFav, onFavToggle }) => {
           <Card.Img variant="top" src={movie.image} />
         </div>
       </Link>
-      <Card.Body className="mb-0">
+      <Card.Body className="mb-0 card-body rounded">
         <button
           className="fav-button"
           onClick={() => onFavToggle(movie.id)}
         >
           {isFav ? "★" : "☆"}
         </button>
-        <Card.Title>{movie.name}</Card.Title>
+        <Card.Title className="fw-bold">{movie.name}</Card.Title>
         <Card.Text>{movie.genre}</Card.Text>
       </Card.Body>
     </Card>

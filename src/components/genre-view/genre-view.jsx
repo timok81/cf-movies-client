@@ -1,9 +1,6 @@
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import "./genre-view.scss";
 import { MovieCard } from "../movie-card/movie-card";
 import { useSelector } from "react-redux";
 import { BackButton } from "../back-button/back-button";
@@ -26,20 +23,17 @@ export const GenreView = ({ onFavToggle }) => {
         <Row className="h-50 align-content-start">
           <Col>
             <div className="d-flex justify-content-between align-items-center">
-              <h1 className="fw-bold">{selectedGenre.name}</h1>
+              <div className="d-flex align-items-center">
+                <BackButton />
+                <h1 className="fw-bold ms-2">{selectedGenre.name}</h1>
+              </div>
             </div>
-            <hr />
 
             <br />
-            <div className="mb-3">{selectedGenre.description}</div>
-          </Col>
-        </Row>
-        <Row className="h-50 d-flex align-content-end pb-4">
-          <div className="d-flex justify-content-between">
-            <div className="align-content-end">
-              <BackButton />
+            <div className="border rounded movie-view-main p-3">
+              {selectedGenre.description}
             </div>
-          </div>
+          </Col>
         </Row>
         <br />
       </Col>

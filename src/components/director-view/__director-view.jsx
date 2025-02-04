@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import "./director-view.scss";
 import { MovieCard } from "../movie-card/movie-card";
 import { useSelector } from "react-redux";
 import { BackButton } from "../back-button/back-button";
@@ -21,44 +22,33 @@ export const DirectorView = ({ onFavToggle }) => {
 
   return (
     <Row className="justify-content-center mx-1">
+      <Row className="mb-3">
+        <div>
+          <div className="d-flex align-items-center">
+            <BackButton />
+            <h1 className="fw-bold ms-2">{selectedDirector.name}</h1>
+          </div>
+        </div>
+      </Row>
+
       <Row className="border rounded p-3 movie-view-main">
-        <Col md={4} className="mb-4">
+        <Col md={4} className="">
           <img
             src={selectedDirector.image}
             className="w-100 rounded"
             alt={`${selectedDirector.name} poster`}
           />
         </Col>
-        <Col>
-          <Row className="h-50 align-content-start">
+        <Col className="p-3">
+          <Row className="d-flex align-content-end">
             <Col>
-              <div className="d-flex justify-content-start align-items-center">
-                <div>
-                  <div className="d-flex align-items-center">
-                    <BackButton />
-                    <h1 className="fw-bold ms-2">{selectedDirector.name}</h1>
-                  </div>
-                </div>
-              </div>
-              <hr />
-              <div className="d-flex">
-                <div className="fw-bold me-2">Born:</div>{" "}
-                {selectedDirector.birth}
-              </div>
+              <div>Born: {selectedDirector.birth}</div>
               {selectedDirector.death !== null && (
-                <div className="d-flex">
-                  <div className="fw-bold me-2">Died:</div>{" "}
-                  {selectedDirector.death}
-                </div>
+                <div>Died: {selectedDirector.death}</div>
               )}
               <br />
               <div>{selectedDirector.bio}</div>
             </Col>
-          </Row>
-          <Row className="h-50 d-flex align-content-end pb-4">
-            <div className="d-flex justify-content-between">
-              <div className="align-content-end"></div>
-            </div>
           </Row>
           <br />
         </Col>

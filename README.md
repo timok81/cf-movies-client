@@ -2,16 +2,21 @@
 
 ## Overview
 
-A movie database site where users can register and manage their account, view details about movies, and manage their favorite movies. Built using React. This repo is the client side of the app.
+A React-based movie database app where users can register and manage their account, view details about movies, and manage their favorite movies. Uses Node/Express with MongoDB as backend.
 
-- Server-side repository: https://github.com/timok81/cf-movie-api
+## Installation
+
+ - First, make sure you have npm installed
+ - Clone the repository: <code>git clone https://github.com/<your-username>/cf-movies-client</code>
+ - Navigate to project directory
+ - Run <code>npm install</code> to install dependencies
+ - Run <code>npm start</code> to build project and start server
+ - Open <code>http://localhost:1234/</code> in browser
 
 ## Features
 
-- Ability to create an account
-- Ability to delete an account
-- Ability to log out
-- Ability to view user profile
-- Ability to view search for movies
-- Ability to view details of any movie
-- Ability to manage movies in user favorites
+- Create account, log in
+- Edit or delete account
+- Browse movies, actors, directors, genres
+- Search for movies by name, genre or director
+- Add movies to favourites

@@ -13159,11 +13159,35 @@ html {
   overflow-x: hidden;
 }
 
-.movie-card {
-  box-shadow: 0 1px 5px #00000026;
+.footer {
+  color: #a8a8a8;
+  background-color: #212529;
+  max-height: 5rem;
+  font-size: .75rem;
 }
 
-.movie-card:hover {
+.content-row {
+  min-height: 100vh;
+}
+
+.back-button {
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.movie-card, .person-card, .genre-card {
+  will-change: transform;
+  transition: transform .3s;
+  box-shadow: 0 1px 5px #00000040;
+}
+
+.movie-card:hover, .person-card:hover, .genre-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px #00000040;
+}
+
+.movie-view-main {
+  background-image: linear-gradient(#fff0, #2125290d);
   box-shadow: 0 3px 10px #00000026;
 }
 
@@ -13174,7 +13198,7 @@ html {
   border: none;
   font-size: 3rem;
   position: absolute;
-  bottom: 0;
+  bottom: -.75rem;
   right: 0;
 }
 
@@ -13182,13 +13206,21 @@ html {
   color: #ffae00;
 }
 
-span {
-  font-size: .75rem;
-  font-weight: normal;
+.fav-buttonB {
+  z-index: 1;
+  color: #ffae00bf;
+  background: none;
+  border: none;
+  font-size: 4rem;
+}
+
+.fav-buttonB:hover {
+  color: #ffae00;
 }
 
 body {
-  font-family: Lato, sans-serif;
+  background-color: #fff;
+  font-family: Liter, serif;
 }
 
 .welcome {
@@ -13198,6 +13230,27 @@ body {
 .title {
   font-size: 3rem;
   font-weight: bold;
+}
+
+.featured-movie {
+  color: #fff;
+  background-image: url("https://image.tmdb.org/t/p/w600_and_h900_bestv2/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg");
+  background-position: center;
+  background-size: cover;
+  min-height: 25rem;
+  position: relative;
+}
+
+.featured-opacity {
+  z-index: 1;
+  background-color: #ffffff80;
+  min-height: 25rem;
+  position: absolute;
+}
+
+span {
+  font-size: .75rem;
+  font-weight: normal;
 }
 
 .account-update-notification {
@@ -13234,14 +13287,6 @@ a {
   text-decoration: none;
 }
 
-.genre-card {
-  box-shadow: 0 1px 5px #00000026;
-}
-
-.genre-card:hover {
-  box-shadow: 0 3px 10px #00000026;
-}
-
 .subject {
   font-size: 1rem;
   font-weight: bold;
@@ -13256,6 +13301,6 @@ h3 {
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 /*# sourceMappingURL=index.2212206d.css.map */

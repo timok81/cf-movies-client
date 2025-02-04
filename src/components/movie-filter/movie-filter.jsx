@@ -11,7 +11,7 @@ export const MovieFilter = () => {
     <Form.Control
       md={4}
       type="text"
-      placeholder="Search for a movie or genre"
+      placeholder="Filter for movie, genre or director"
       value={filter}
       onChange={(e) => dispatch(setFilter(e.target.value))}
     />
