@@ -12,7 +12,7 @@ export const MovieList = ({ onFavToggle }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const user = useSelector((state) => state.user.user);
 
-  const itemsPerPage = 2;
+  const itemsPerPage = 8;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = movies.slice(indexOfFirstItem, indexOfLastItem);

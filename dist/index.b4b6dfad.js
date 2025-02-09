@@ -19150,9 +19150,9 @@ const MovieView = ({ onFavToggle })=>{
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "align-content-end",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                className: "fav-buttonB",
+                                                className: "fav-buttonB p-0",
                                                 onClick: ()=>onFavToggle(selectedMovie.id, user),
-                                                title: "Add to favourites",
+                                                title: "Toggle favourite",
                                                 children: isFav ? "\u2605" : "\u2606"
                                             }, void 0, false, {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
@@ -34740,7 +34740,7 @@ const MovieList = ({ onFavToggle })=>{
     const movies = (0, _reactRedux.useSelector)((state)=>state.movies.list);
     const [currentPage, setCurrentPage] = (0, _react.useState)(1);
     const user = (0, _reactRedux.useSelector)((state)=>state.user.user);
-    const itemsPerPage = 2;
+    const itemsPerPage = 8;
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = movies.slice(indexOfFirstItem, indexOfLastItem);

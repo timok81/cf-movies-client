@@ -13211,7 +13211,9 @@ html {
   color: #ffae00bf;
   background: none;
   border: none;
-  font-size: 4rem;
+  width: 60px;
+  height: 60px;
+  font-size: 3rem;
 }
 
 .fav-buttonB:hover {

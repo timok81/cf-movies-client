@@ -59,11 +59,13 @@ html {
 }
 
 .fav-buttonB {
-  font-size: 4rem;
+  font-size: 3rem;
   border: none;
   background: none;
   z-index: 1;
   color: rgba(255, 174, 0, 0.75);
+  height: 60px;
+  width: 60px;
 }
 
 .fav-buttonB:hover {

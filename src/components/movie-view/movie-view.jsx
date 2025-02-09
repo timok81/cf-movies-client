@@ -102,9 +102,9 @@ export const MovieView = ({ onFavToggle }) => {
               </div>
               <div className="align-content-end">
                 <button
-                  className="fav-buttonB"
+                  className="fav-buttonB p-0"
                   onClick={() => onFavToggle(selectedMovie.id, user)}
-                  title="Add to favourites"
+                  title="Toggle favourite"
                 >
                   {isFav ? "★" : "☆"}
                 </button>
