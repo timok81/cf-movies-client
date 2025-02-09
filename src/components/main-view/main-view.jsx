@@ -27,6 +27,7 @@ const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const movies = useSelector((state) => state.movies.list);
+
   const actors = useSelector((state) => state.actors.list);
   const directors = useSelector((state) => state.directors.list);
   const genres = useSelector((state) => state.genres.list);
@@ -38,6 +39,7 @@ const MainView = () => {
   const token = storedToken
     ? storedToken
     : useSelector((state) => state.user.token);
+    
   const dispatch = useDispatch();
 
   //Make sure user/token are up to date
@@ -452,7 +454,9 @@ const MainView = () => {
                   {!user ? (
                     <Navigate to="/login" replace />
                   ) : (
-                    <MovieList onFavToggle={handleFavToggle} />
+                    <>
+                      <MovieList onFavToggle={handleFavToggle} />
+                    </>
                   )}
                 </>
               }

@@ -13177,7 +13177,7 @@ html {
 
 .movie-card, .person-card, .genre-card {
   will-change: transform;
-  transition: transform .3s;
+  transition: transform .15s;
   box-shadow: 0 1px 5px #00000040;
 }
 
@@ -13248,6 +13248,10 @@ body {
   position: absolute;
 }
 
+.fav-button {
+  font-size: 2.5rem;
+}
+
 span {
   font-size: .75rem;
   font-weight: normal;
@@ -13261,7 +13265,7 @@ span {
 }
 
 .person-card {
-  box-shadow: 0 1px 5px #00000026;
+  box-shadow: 0 5px 3px #00000026;
 }
 
 .person-card:hover {

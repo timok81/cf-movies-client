@@ -17,11 +17,6 @@ export const GenreList = () => {
 
   return (
     <>
-      <Row className="justify-content-center mb-5">
-        <Col xs={10} sm={8} lg={6}>
-          <GenreFilter />
-        </Col>
-      </Row>
       <Row className="">
         {genres.length === 0 ? (
           <Col className="text-center">Loading genres...</Col>

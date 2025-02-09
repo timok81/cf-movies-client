@@ -12,9 +12,9 @@ export const ProfileEdit = ({ handleEditSubmit }) => {
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.Email);
-  const [birthday, setBirthday] = useState("");
+  const [birthday, setBirthday] = useState(user.Birthday.slice(0, 10));
   const [focus, setFocus] = useState(null);
-
+  console.log("birthday: ", user.Birthday);
   const [showToastSuccess, setShowToastSuccess] = useState(false);
   const [showToastFailure, setShowToastFailure] = useState(false);
 
@@ -31,16 +31,12 @@ export const ProfileEdit = ({ handleEditSubmit }) => {
   return (
     <form
       onSubmit={(event) =>
-        handleEditSubmit(event, username, password, email, birthday, handleEdit)
+        handleEditSubmit(event, username, password, email, new Date(birthday).toISOString(), handleEdit)
       }
     >
       <h2 className="mb-3">Edit profile</h2>
 
-      <div
-        role="alert"
-        aria-live="polite"
-        aria-atomic="true"
-      >
+      <div role="alert" aria-live="polite" aria-atomic="true">
         <Toast
           show={showToastSuccess}
           onClose={() => setShowToastSuccess(false)}
