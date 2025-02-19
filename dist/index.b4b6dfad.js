@@ -34867,7 +34867,7 @@ var _colDefault = parcelHelpers.interopDefault(_col);
 function Pagination({ itemsPerPage, itemsTotal, currentPage, handlePagination }) {
     let pageNumbers = [];
     let pageRange = 4;
-    for(i = 1; i <= Math.ceil(itemsTotal / itemsPerPage); i++)pageNumbers.push(i);
+    for(let i = 1; i <= Math.ceil(itemsTotal / itemsPerPage); i++)pageNumbers.push(i);
     function paginate(pageNumber, e) {
         e.preventDefault();
         if (pageNumber <= 0) pageNumber = 1;

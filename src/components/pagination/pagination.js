@@ -11,7 +11,7 @@ export default function Pagination({
   let pageNumbers = [];
   let pageRange = 4;
 
-  for (i = 1; i <= Math.ceil(itemsTotal / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(itemsTotal / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
