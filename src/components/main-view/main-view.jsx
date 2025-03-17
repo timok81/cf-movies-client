@@ -39,7 +39,7 @@ const MainView = () => {
   const token = storedToken
     ? storedToken
     : useSelector((state) => state.user.token);
-    
+
   const dispatch = useDispatch();
 
   //Make sure user/token are up to date
@@ -175,13 +175,6 @@ const MainView = () => {
       },
     })
       .then((response) => {
-        if (!response.ok) {
-          return response.json().then((err) => {
-            throw new Error(
-              err?.errors?.map((e) => e.msg).join(", ") || "Update failed"
-            );
-          });
-        }
         return response.json();
       })
       .then((updatedUser) => {
@@ -205,13 +198,11 @@ const MainView = () => {
     })
       .then((response) => {
         if (response.ok) {
-          console.log("Account has been deleted");
           dispatch(setUser(null));
           dispatch(setToken(null));
           localStorage.clear();
           window.location.reload();
         } else {
-          console.log("Failed to delete account");
           alert("Failed to delete account");
         }
       })
@@ -321,12 +312,7 @@ const MainView = () => {
                         </Col>
                       </Row>
                       <Col sm={8} md={8} lg={6}>
-                        <LoginView
-                          onLoggedIn={(user) => {
-                            setUser(user);
-                            setToken(token);
-                          }}
-                        />
+                        <LoginView />
                       </Col>
                     </Row>
                   )}
