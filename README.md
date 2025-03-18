@@ -2,7 +2,8 @@
 
 ## Overview
 
-A React-based movie database app where users can register and manage their account, view details about movies, and manage their favorite movies. Uses Node/Express with MongoDB as backend.
+A React-based movie database app where users can register and manage their account, view details about movies, and manage their favorite movies. Uses Node/Express with MongoDB as backend.  
+The app can be viewed here: https://muhviedb.netlify.app/
 
 ## Installation
 
