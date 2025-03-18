@@ -22,6 +22,7 @@ import { DirectorView } from "../director-view/director-view";
 import { setGenres } from "../../redux/reducers/genres";
 import { GenreView } from "../genre-view/genre-view";
 import { Footer } from "../footer/footer";
+import { ToastContainer } from "react-toastify";
 
 const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -207,6 +208,7 @@ const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar />
+      <ToastContainer position="top-center"/>
       <Row className="justify-content-center w-100 mx-0 content-row">
         <Col md={8}>
           <Routes>

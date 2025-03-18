@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import "./signup-view.scss"
+import "./signup-view.scss";
+import { toast } from "react-toastify";
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
@@ -31,10 +32,10 @@ export const SignupView = () => {
       },
     }).then((response) => {
       if (response.ok) {
-        alert("Signup successful");
+        toast.success("New account created");
         navigate("/login");
       } else {
-        alert("Signup failed");
+        toast.error("Failed to create account");
       }
     });
   };
@@ -46,11 +47,7 @@ export const SignupView = () => {
       <br />
       <br />
       <Form.Group controlId="formUsername">
-        <FloatingLabel
-          controlId="userName"
-          label="Username *"
-          className="mb-3"
-        >
+        <FloatingLabel controlId="userName" label="Username *" className="mb-3">
           <Form.Control
             type="text"
             value={username}
@@ -65,17 +62,14 @@ export const SignupView = () => {
             onBlur={() => setFocus(null)}
           />
           <Form.Text id="usernameHelpBlock" muted>
-            {focus === "username" && "Your username must be at least 5 characters long and may only contain letters and numbers."}
+            {focus === "username" &&
+              "Your username must be at least 5 characters long and may only contain letters and numbers."}
           </Form.Text>
         </FloatingLabel>
       </Form.Group>
 
       <Form.Group controlId="formPassword">
-        <FloatingLabel
-          controlId="password"
-          label="Password *"
-          className="mb-3"
-        >
+        <FloatingLabel controlId="password" label="Password *" className="mb-3">
           <Form.Control
             type="password"
             value={password}
@@ -90,7 +84,8 @@ export const SignupView = () => {
             onBlur={() => setFocus(null)}
           />
           <Form.Text id="passwordHelpBlock" muted>
-            {focus === "password" && "Your password must have at least 8 characters and may not contain spaces."}
+            {focus === "password" &&
+              "Your password must have at least 8 characters and may not contain spaces."}
           </Form.Text>
         </FloatingLabel>
       </Form.Group>

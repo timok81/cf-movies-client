@@ -2,11 +2,11 @@ import "./profile-view.scss";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Toast } from "react-bootstrap";
 import "./profile-view.scss";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../../redux/reducers/user/user";
+import { toast } from "react-toastify";
 
 export const ProfileEdit = () => {
   const dispatch = useDispatch();
@@ -17,9 +17,6 @@ export const ProfileEdit = () => {
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday.slice(0, 10));
   const [focus, setFocus] = useState(null);
-  console.log("birthday: ", user.Birthday);
-  const [showToastSuccess, setShowToastSuccess] = useState(false);
-  const [showToastFailure, setShowToastFailure] = useState(false);
 
   //Try updating user information
   const handleEditSubmit = (
@@ -28,7 +25,6 @@ export const ProfileEdit = () => {
     password,
     email,
     birthday,
-    handleToast
   ) => {
     event.preventDefault();
 
@@ -54,23 +50,14 @@ export const ProfileEdit = () => {
         if (updatedUser) {
           dispatch(setUser(updatedUser));
           localStorage.setItem("user", JSON.stringify(updatedUser));
-          handleToast(true);
+          toast.success('Account information updated');
+        } else {
+          toast.error("Something went wrong")
         }
       })
       .catch((err) => {
         console.error("Request failed:", err);
-        handleToast(false);
       });
-  };
-
-  const handleToast = (success) => {
-    if (success) {
-      setShowToastSuccess(true);
-      setTimeout(() => setShowToastSuccess(false), 3000);
-    } else {
-      setShowToastFailure(true);
-      setTimeout(() => setShowToastFailure(false), 3000);
-    }
   };
 
   return (
@@ -82,31 +69,10 @@ export const ProfileEdit = () => {
           password,
           email,
           new Date(birthday).toISOString(),
-          handleToast
         )
       }
     >
       <h2 className="mb-3">Edit profile</h2>
-
-      <div role="alert" aria-live="polite" aria-atomic="true">
-        <Toast
-          show={showToastSuccess}
-          onClose={() => setShowToastSuccess(false)}
-          className="position-absolute top-0 end-0 p-2 text-bg-success"
-          style={{ zIndex: 5 }}
-        >
-          <Toast.Body>Profile updated successfully!</Toast.Body>
-        </Toast>
-
-        <Toast
-          show={showToastFailure}
-          onClose={() => setShowToastFailure(false)}
-          className="position-absolute top-0 end-0 p-2 text-bg-danger"
-          style={{ zIndex: 5 }}
-        >
-          <Toast.Body>Unable to update profile</Toast.Body>
-        </Toast>
-      </div>
 
       <Form.Group controlId="formUsername">
         <Form.Label>Change username:</Form.Label>

@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { useDispatch } from "react-redux";
 import { setToken, setUser } from "../../redux/reducers/user/user";
+import { toast } from "react-toastify";
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -32,11 +33,11 @@ export const LoginView = ({ onLoggedIn }) => {
           dispatch(setToken(data.token));
           window.location.reload();
         } else {
-          alert("No such user");
+          toast.error("Invalid credentials");
         }
       })
-      .catch((e) => {
-        alert("Something went wrong");
+      .catch((err) => {
+        console.log(err);
       });
   };
 
