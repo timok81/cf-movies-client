@@ -98,7 +98,7 @@ export const SignupView = () => {
           </Form.Text>
         </FloatingLabel>
       </Form.Group>
-      
+
       <Form.Group controlId="formConfirmPassword">
         <FloatingLabel
           controlId="confirmPassword"
@@ -116,7 +116,9 @@ export const SignupView = () => {
             required
             minLength="8"
             placeholder="Confirm password"
-            className={passwordsMatch ? "mb-4" : "mb-4 border border-danger rounded"}
+            className={
+              passwordsMatch ? "mb-4" : "mb-4 border border-danger rounded"
+            }
             aria-describedby="passwordHelpBlock"
             onFocus={() => setFocus("password")}
             onBlur={() => setFocus(null)}
