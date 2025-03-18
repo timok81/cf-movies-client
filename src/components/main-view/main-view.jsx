@@ -4,7 +4,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { ProfileView } from "../profile-view/profile-view";
-import NavigationBar from "../../navigation-bar/navigation-bar";
+import NavigationBar from "../navigation-bar/navigation-bar";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
@@ -224,7 +224,7 @@ const MainView = () => {
                       <Row className="justify-content-center">
                         <Col sm={8} md={8} lg={6} className="px-0">
                           <h1 className="welcome mb-0">Welcome to the</h1>
-                          <h2 className="title mb-5">Movie database</h2>
+                          <h2 className="title mb-2">Movie database</h2>
                           <hr />
                           <br />
                         </Col>
@@ -248,7 +248,7 @@ const MainView = () => {
                       <Row className="justify-content-center">
                         <Col sm={8} md={8} lg={6} className="px-0">
                           <h1 className="welcome mb-0">Welcome to the</h1>
-                          <h2 className="title mb-5">Movie database</h2>
+                          <h2 className="title mb-2">Movie database</h2>
                           <hr />
                           <br />
                         </Col>

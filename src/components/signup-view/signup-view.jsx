@@ -49,8 +49,9 @@ export const SignupView = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3 className="mb-4">Create an account</h3>
-      <span>Fields marked with * are required</span>
+      <h3 className="mb-2">Create an account</h3>
+      <span>Fields marked with * are required.</span><br />
+      <span>Email address does not need to be real, no mail will be sent to it.</span>
       <br />
       <br />
       <Form.Group controlId="formUsername">
