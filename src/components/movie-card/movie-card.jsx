@@ -20,7 +20,7 @@ export const MovieCard = ({ movie, isFav, onFavToggle }) => {
         >
           {isFav ? "★" : "☆"}
         </button>
-        <Card.Title className="fw-bold">{movie.name}</Card.Title>
+        <Card.Title>{movie.name}</Card.Title>
         <Card.Text>{movie.genre}</Card.Text>
       </Card.Body>
     </Card>
