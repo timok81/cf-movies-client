@@ -35597,7 +35597,7 @@ const ListFilter = ()=>{
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                     md: 4,
                     type: "text",
-                    placeholder: "Search",
+                    placeholder: "Search...",
                     value: inputValue,
                     onChange: (e)=>setInputValue(e.target.value)
                 }, void 0, false, {
@@ -35606,7 +35606,7 @@ const ListFilter = ()=>{
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                    variant: "primary",
+                    variant: "secondary",
                     type: "submit",
                     onClick: ()=>dispatch((0, _actors.setFilter)(inputValue)),
                     children: "Search"

@@ -15,12 +15,12 @@ export const ListFilter = () => {
         <Form.Control
           md={4}
           type="text"
-          placeholder="Search"
+          placeholder="Search..."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
         <Button
-          variant="primary"
+          variant="secondary"
           type="submit"
           onClick={() => dispatch(setFilter(inputValue))}
         >
