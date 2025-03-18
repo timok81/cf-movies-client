@@ -23,7 +23,7 @@ html {
 .movie-card,
 .person-card,
 .genre-card {
-  box-shadow: 0px 1px 5px rgb(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 3px rgb(0, 0, 0, 0.25);
   transition: transform 0.15s;
   will-change: transform;
 }
@@ -51,7 +51,7 @@ html {
   right: 0;
   bottom: -0.75rem;
   z-index: 1;
-  color: rgba(255, 174, 0, 0.75);
+  color: rgb(33, 37, 41)
 }
 
 .fav-button:hover {
