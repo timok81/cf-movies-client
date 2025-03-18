@@ -148,66 +148,6 @@ const MainView = () => {
     return null;
   };
 
-  //Try updating user information
-  const handleEditSubmit = (
-    event,
-    username,
-    password,
-    email,
-    birthday,
-    handleEdit
-  ) => {
-    event.preventDefault();
-
-    const data = {
-      Username: username,
-      Email: email,
-      ...(password && { Password: password }),
-      ...(birthday && { Birthday: birthday }),
-    };
-
-    fetch(`https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}`, {
-      method: "PUT",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((updatedUser) => {
-        if (updatedUser) {
-          dispatch(setUser(updatedUser));
-          localStorage.setItem("user", JSON.stringify(updatedUser));
-          handleEdit(true);
-        }
-      })
-      .catch((err) => {
-        console.error("Request failed:", err);
-        handleEdit(false);
-      });
-  };
-
-  //Try to delete account
-  function handleDeleteAccount() {
-    fetch(`https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}`, {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((response) => {
-        if (response.ok) {
-          dispatch(setUser(null));
-          dispatch(setToken(null));
-          localStorage.clear();
-          window.location.reload();
-        } else {
-          alert("Failed to delete account");
-        }
-      })
-      .catch((err) => console.error("Request failed:", err));
-  }
 
   //Clicking on fav button
   const handleFavToggle = async (movieId, user) => {
@@ -329,8 +269,6 @@ const MainView = () => {
                     <Col>
                       <ProfileView
                         onFavToggle={handleFavToggle}
-                        onDeleteAccount={handleDeleteAccount}
-                        handleEditSubmit={handleEditSubmit}
                       />
                     </Col>
                   )}

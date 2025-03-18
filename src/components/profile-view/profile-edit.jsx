@@ -5,10 +5,13 @@ import Form from "react-bootstrap/Form";
 import { Toast } from "react-bootstrap";
 import "./profile-view.scss";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../../redux/reducers/user/user";
 
-export const ProfileEdit = ({ handleEditSubmit }) => {
+export const ProfileEdit = () => {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
+  const token = useSelector((state) => state.user.token);
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.Email);
@@ -18,7 +21,49 @@ export const ProfileEdit = ({ handleEditSubmit }) => {
   const [showToastSuccess, setShowToastSuccess] = useState(false);
   const [showToastFailure, setShowToastFailure] = useState(false);
 
-  const handleEdit = (success) => {
+  //Try updating user information
+  const handleEditSubmit = (
+    event,
+    username,
+    password,
+    email,
+    birthday,
+    handleToast
+  ) => {
+    event.preventDefault();
+
+    const data = {
+      Username: username,
+      Email: email,
+      ...(password && { Password: password }),
+      ...(birthday && { Birthday: birthday }),
+    };
+
+    fetch(`https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((updatedUser) => {
+        if (updatedUser) {
+          dispatch(setUser(updatedUser));
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+          handleToast(true);
+        }
+      })
+      .catch((err) => {
+        console.error("Request failed:", err);
+        handleToast(false);
+      });
+  };
+
+  const handleToast = (success) => {
     if (success) {
       setShowToastSuccess(true);
       setTimeout(() => setShowToastSuccess(false), 3000);
@@ -31,7 +76,14 @@ export const ProfileEdit = ({ handleEditSubmit }) => {
   return (
     <form
       onSubmit={(event) =>
-        handleEditSubmit(event, username, password, email, new Date(birthday).toISOString(), handleEdit)
+        handleEditSubmit(
+          event,
+          username,
+          password,
+          email,
+          new Date(birthday).toISOString(),
+          handleToast
+        )
       }
     >
       <h2 className="mb-3">Edit profile</h2>

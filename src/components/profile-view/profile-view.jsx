@@ -7,28 +7,46 @@ import { Row, Col } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import Collapse from "react-bootstrap/Collapse";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setToken, setUser } from "../../redux/reducers/user/user";
 
 export const ProfileView = ({
   onFavToggle,
-  onDeleteAccount,
   handleEditSubmit,
 }) => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const movies = useSelector((state) => state.movies.list);
   const user = useSelector((state) => state.user.user);
-
-  //For debugging
-  //console.log("ProfileView user:", user);
-
-  if (!user) {
-    return <p>Loading user data...</p>;
-  }
-
+  const token = useSelector((state) => state.user.token)
   let favMovies = movies.filter((movie) =>
     user.FavouriteMovies.includes(movie.id)
   );
-
+  
+  //Try to delete account
+  function handleDeleteAccount() {
+    fetch(`https://moviemovie-7703363b92cb.herokuapp.com/users/${user._id}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((response) => {
+      if (response.ok) {
+        dispatch(setUser(null));
+        dispatch(setToken(null));
+        localStorage.clear();
+        window.location.reload();
+      } else {
+        alert("Failed to delete account");
+      }
+    })
+    .catch((err) => console.error("Request failed:", err));
+  }
+  
+  
+    if (!user) {
+      return <p>Loading user data...</p>;
+    }
+  
   return (
     <Row className="justify-content-center">
       <Col xs={10} sm={8} md={8} lg={6}>
@@ -50,7 +68,7 @@ export const ProfileView = ({
                 Are you sure you want to delete this account?
                 <br />
                 <br />
-                <Button variant="danger" onClick={onDeleteAccount}>
+                <Button variant="danger" onClick={handleDeleteAccount}>
                   Delete account
                 </Button>
               </Card>
