@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 export const SignupView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
   const [focus, setFocus] = useState(null);
@@ -16,6 +18,11 @@ export const SignupView = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (password !== confirmPassword) {
+      setPasswordsMatch(false);
+      return;
+    }
 
     const data = {
       Username: username,
@@ -72,8 +79,10 @@ export const SignupView = () => {
         <FloatingLabel controlId="password" label="Password *" className="mb-3">
           <Form.Control
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setPasswordsMatch(true);
+            }}
             pattern="^\S+$"
             required
             minLength="8"
@@ -88,6 +97,38 @@ export const SignupView = () => {
               "Your password must have at least 8 characters and may not contain spaces."}
           </Form.Text>
         </FloatingLabel>
+      </Form.Group>
+      
+      <Form.Group controlId="formConfirmPassword">
+        <FloatingLabel
+          controlId="confirmPassword"
+          label="Confirm Password *"
+          className="mb-3"
+        >
+          <Form.Control
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+              setPasswordsMatch(true);
+            }}
+            pattern="^\S+$"
+            required
+            minLength="8"
+            placeholder="Confirm password"
+            className={passwordsMatch ? "mb-4" : "mb-4 border border-danger rounded"}
+            aria-describedby="passwordHelpBlock"
+            onFocus={() => setFocus("password")}
+            onBlur={() => setFocus(null)}
+          />
+          <Form.Text id="confirmPasswordHelpBlock" muted>
+            {focus === "confirmPassword" &&
+              "Your password must have at least 8 characters and may not contain spaces."}
+          </Form.Text>
+        </FloatingLabel>
+        {!passwordsMatch && (
+          <div className="mb-3 text-danger">Passwords do not match</div>
+        )}
       </Form.Group>
 
       <Form.Group controlId="formEmail">

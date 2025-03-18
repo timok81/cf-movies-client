@@ -60,7 +60,7 @@ export const ProfileView = ({
             variant="outline-secondary"
             className="mb-2"
           >
-            {open ? "Cancel" : "Delete account"}
+            {open ? "Cancel" : "Delete account..."}
           </Button>
           <Collapse in={open}>
             <div id="confirm-collapse">

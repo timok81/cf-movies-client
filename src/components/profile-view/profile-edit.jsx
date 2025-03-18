@@ -2,6 +2,7 @@ import "./profile-view.scss";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 import "./profile-view.scss";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,19 +15,20 @@ export const ProfileEdit = () => {
   const token = useSelector((state) => state.user.token);
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday.slice(0, 10));
   const [focus, setFocus] = useState(null);
 
   //Try updating user information
-  const handleEditSubmit = (
-    event,
-    username,
-    password,
-    email,
-    birthday,
-  ) => {
+  const handleEditSubmit = (event, username, password, email, birthday) => {
     event.preventDefault();
+
+    if (password !== confirmPassword) {
+      setPasswordsMatch(false);
+      return;
+    }
 
     const data = {
       Username: username,
@@ -50,9 +52,9 @@ export const ProfileEdit = () => {
         if (updatedUser) {
           dispatch(setUser(updatedUser));
           localStorage.setItem("user", JSON.stringify(updatedUser));
-          toast.success('Account information updated');
+          toast.success("Account information updated");
         } else {
-          toast.error("Something went wrong")
+          toast.error("Something went wrong");
         }
       })
       .catch((err) => {
@@ -68,7 +70,7 @@ export const ProfileEdit = () => {
           username,
           password,
           email,
-          new Date(birthday).toISOString(),
+          new Date(birthday).toISOString()
         )
       }
     >
@@ -90,7 +92,7 @@ export const ProfileEdit = () => {
         />
         <Form.Text id="usernameHelpBlock" muted>
           {focus === "username" &&
-            "Your username must be at least 5 characters long and may only contain letters and numbers."}
+            <div className="mb-2">Your username must be at least 5 characters long and may only contain letters and numbers.</div>}
         </Form.Text>
       </Form.Group>
 
@@ -103,15 +105,43 @@ export const ProfileEdit = () => {
           pattern="^\S+$"
           minLength="8"
           placeholder="New password"
-          className="mb-4"
+          className="mb-3"
           aria-describedby="passwordHelpBlock"
           onFocus={() => setFocus("password")}
           onBlur={() => setFocus(null)}
         />
         <Form.Text id="passwordHelpBlock" muted>
           {focus === "password" &&
-            "Your password must have at least 8 characters and may not contain spaces."}
+            <div className="mb-3">Your password must have at least 8 characters and may not contain spaces.</div>}
         </Form.Text>
+      </Form.Group>
+
+      <Form.Group controlId="formConfirmPassword">
+        <Form.Control
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => {
+            setConfirmPassword(e.target.value);
+            setPasswordsMatch(true);
+          }}
+          pattern="^\S+$"
+          minLength="8"
+          placeholder="Confirm password"
+          className={
+            passwordsMatch ? "mb-4" : "mb-4 border border-danger rounded"
+          }
+          aria-describedby="passwordHelpBlock"
+          onFocus={() => setFocus("password")}
+          onBlur={() => setFocus(null)}
+        />
+        <Form.Text id="confirmPasswordHelpBlock" muted >
+          {focus === "confirmPassword" &&
+            <div className="mb-3">Your password must have at least 8 characters and may not contain spaces.</div>}
+        </Form.Text>
+
+        {!passwordsMatch && (
+          <div className="mb-3 text-danger">Passwords do not match</div>
+        )}
       </Form.Group>
 
       <Form.Group controlId="formEmail">
@@ -127,7 +157,7 @@ export const ProfileEdit = () => {
           onBlur={() => setFocus(null)}
         />
         <Form.Text id="emaildHelpBlock" muted>
-          {focus === "email" && "Your email must be valid."}
+          {focus === "email" && <div className="mb-2">Your email must be valid.</div>}
         </Form.Text>
       </Form.Group>
 
