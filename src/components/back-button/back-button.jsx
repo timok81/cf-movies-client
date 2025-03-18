@@ -1,11 +1,15 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
 export const BackButton = () => {
   const navigate = useNavigate();
   return (
-    <Button variant="link" onClick={() => navigate(-1)} className="back-button link-secondary p-0">
-      🠈
+    <Button
+      variant="link"
+      onClick={() => navigate(-1)}
+      className="back-button link-dark p-0"
+    >
+      ⯇
     </Button>
   );
-}
+};

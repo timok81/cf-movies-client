@@ -51,11 +51,11 @@ html {
   right: 0;
   bottom: -0.75rem;
   z-index: 1;
-  color: rgb(33, 37, 41)
+  color: rgb(33, 37, 41);
 }
 
 .fav-button:hover {
-  color: rgb(255, 174, 0, 1);
+  color: rgb(255, 174, 0);
 }
 
 .fav-buttonB {
@@ -63,13 +63,13 @@ html {
   border: none;
   background: none;
   z-index: 1;
-  color: rgba(255, 174, 0, 0.75);
+  color: rgb(33, 37, 41);
   height: 60px;
   width: 60px;
 }
 
 .fav-buttonB:hover {
-  color: rgb(255, 174, 0, 1);
+  color: rgb(255, 174, 0);
 }
 
 body {
@@ -100,4 +100,16 @@ body {
   position: absolute;
   min-height: 25rem;
   z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .movie-view-image {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .movie-view-info {
+    padding-left: 2rem;
+  }
 }

@@ -13208,7 +13208,7 @@ html {
 
 .fav-buttonB {
   z-index: 1;
-  color: #ffae00bf;
+  color: #212529;
   background: none;
   border: none;
   width: 60px;
@@ -13248,6 +13248,18 @@ body {
   background-color: #ffffff80;
   min-height: 25rem;
   position: absolute;
+}
+
+@media screen and (width <= 768px) {
+  .movie-view-image {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (width >= 769px) {
+  .movie-view-info {
+    padding-left: 2rem;
+  }
 }
 
 .fav-button {

@@ -18262,7 +18262,8 @@ const MainView = ()=>{
                         return actor.Name;
                     }),
                     description: obj.Description,
-                    featured: obj.Featured
+                    featured: obj.Featured,
+                    trailer: obj.TrailerPath
                 };
             });
             //Extract directors from movies
@@ -18600,13 +18601,13 @@ const MainView = ()=>{
                                         replace: true
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 285,
+                                        lineNumber: 283,
                                         columnNumber: 21
                                     }, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: "Loading movie..."
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 287,
+                                        lineNumber: 285,
                                         columnNumber: 21
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -18614,18 +18615,18 @@ const MainView = ()=>{
                                             onFavToggle: handleFavToggle
                                         }, void 0, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 290,
+                                            lineNumber: 288,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 289,
+                                        lineNumber: 287,
                                         columnNumber: 21
                                     }, void 0)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 280,
+                                lineNumber: 278,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -18636,17 +18637,17 @@ const MainView = ()=>{
                                         replace: true
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 302,
+                                        lineNumber: 300,
                                         columnNumber: 28
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _actorList.ActorList), {}, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 302,
+                                        lineNumber: 300,
                                         columnNumber: 63
                                     }, void 0)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 299,
+                                lineNumber: 297,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -18657,13 +18658,13 @@ const MainView = ()=>{
                                         replace: true
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 310,
+                                        lineNumber: 308,
                                         columnNumber: 21
                                     }, void 0) : actors.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: "Loading actor..."
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 312,
+                                        lineNumber: 310,
                                         columnNumber: 21
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _actorView.ActorView), {
@@ -18671,18 +18672,18 @@ const MainView = ()=>{
                                             onFavToggle: handleFavToggle
                                         }, void 0, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 315,
+                                            lineNumber: 313,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 314,
+                                        lineNumber: 312,
                                         columnNumber: 21
                                     }, void 0)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 305,
+                                lineNumber: 303,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -18693,17 +18694,17 @@ const MainView = ()=>{
                                         replace: true
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 328,
+                                        lineNumber: 326,
                                         columnNumber: 28
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _directorList.DirectorList), {}, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 328,
+                                        lineNumber: 326,
                                         columnNumber: 63
                                     }, void 0)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 324,
+                                lineNumber: 322,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -18714,13 +18715,13 @@ const MainView = ()=>{
                                         replace: true
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 337,
+                                        lineNumber: 335,
                                         columnNumber: 21
                                     }, void 0) : directors.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: "Loading director..."
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 339,
+                                        lineNumber: 337,
                                         columnNumber: 21
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _directorView.DirectorView), {
@@ -18728,18 +18729,18 @@ const MainView = ()=>{
                                             onFavToggle: handleFavToggle
                                         }, void 0, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 342,
+                                            lineNumber: 340,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 341,
+                                        lineNumber: 339,
                                         columnNumber: 21
                                     }, void 0)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 332,
+                                lineNumber: 330,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -18750,17 +18751,17 @@ const MainView = ()=>{
                                         replace: true
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 354,
+                                        lineNumber: 352,
                                         columnNumber: 28
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _genreList.GenreList), {}, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 354,
+                                        lineNumber: 352,
                                         columnNumber: 63
                                     }, void 0)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 351,
+                                lineNumber: 349,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -18771,13 +18772,13 @@ const MainView = ()=>{
                                         replace: true
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 362,
+                                        lineNumber: 360,
                                         columnNumber: 21
                                     }, void 0) : genres.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: "Loading genre..."
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 364,
+                                        lineNumber: 362,
                                         columnNumber: 21
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _genreView.GenreView), {
@@ -18785,18 +18786,18 @@ const MainView = ()=>{
                                             onFavToggle: handleFavToggle
                                         }, void 0, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 367,
+                                            lineNumber: 365,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 366,
+                                        lineNumber: 364,
                                         columnNumber: 21
                                     }, void 0)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 357,
+                                lineNumber: 355,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -18807,21 +18808,21 @@ const MainView = ()=>{
                                         replace: true
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 381,
+                                        lineNumber: 379,
                                         columnNumber: 21
                                     }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieList.MovieList), {
                                             onFavToggle: handleFavToggle
                                         }, void 0, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 384,
+                                            lineNumber: 382,
                                             columnNumber: 23
                                         }, void 0)
                                     }, void 0, false)
                                 }, void 0, false)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 376,
+                                lineNumber: 374,
                                 columnNumber: 13
                             }, undefined)
                         ]
@@ -18842,7 +18843,7 @@ const MainView = ()=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footer.Footer), {}, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 393,
+                lineNumber: 391,
                 columnNumber: 7
             }, undefined)
         ]
@@ -18909,9 +18910,9 @@ const MovieView = ({ onFavToggle })=>{
         className: "justify-content-center mx-1",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "mb-3",
+                className: "mb-2 p-0",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "d-flex justify-content-between align-items-center",
+                    className: "d-flex justify-content-between align-items-center p-0",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "d-flex align-items-center",
@@ -18922,7 +18923,7 @@ const MovieView = ({ onFavToggle })=>{
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                                    className: "fw-bold ms-2",
+                                    className: "ms-2",
                                     children: selectedMovie.name
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
@@ -18955,27 +18956,59 @@ const MovieView = ({ onFavToggle })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "rounded p-3 movie-view-main",
+                className: "mb-4 p-0",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "ratio ratio-16x9 p-0 m-0",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("iframe", {
+                        width: "1250",
+                        height: "703",
+                        src: selectedMovie.trailer,
+                        title: "Interstellar Movie - Official Trailer",
+                        frameBorder: "0",
+                        allow: "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+                        referrerpolicy: "strict-origin-when-cross-origin"
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 39,
+                        columnNumber: 11
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 38,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 37,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 50,
+                columnNumber: 1
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                className: "rounded p-0 mb-3",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         md: 4,
                         className: "p-0",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             src: selectedMovie.image,
-                            className: "w-100 rounded",
+                            className: "w-100 rounded movie-view-image",
                             alt: `${selectedMovie.name} poster`
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 39,
+                            lineNumber: 53,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 38,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                        className: "p-3",
+                        className: "movie-view-info",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                                 className: "h-25",
@@ -18984,17 +19017,17 @@ const MovieView = ({ onFavToggle })=>{
                                         children: selectedMovie.description
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 48,
+                                        lineNumber: 62,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 47,
+                                    lineNumber: 61,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 46,
+                                lineNumber: 60,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -19005,137 +19038,134 @@ const MovieView = ({ onFavToggle })=>{
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "w-100",
                                             children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 54,
-                                                    columnNumber: 17
-                                                }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                                                    className: "fw-bold",
                                                     children: "Genre:"
                                                 }, void 0, false, {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 55,
+                                                    lineNumber: 68,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                     className: "mb-3",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                                        variant: "dark",
+                                                        variant: "secondary",
                                                         className: "px-2 py-0 me-2",
                                                         onClick: ()=>navigate(`/genres/${encodeURIComponent(selectedMovie.genre)}`),
                                                         children: selectedMovie.genre
                                                     }, void 0, false, {
                                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                                        lineNumber: 57,
+                                                        lineNumber: 70,
                                                         columnNumber: 19
                                                     }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 56,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                                                    className: "fw-bold",
-                                                    children: "Director:"
                                                 }, void 0, false, {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
                                                     lineNumber: 69,
                                                     columnNumber: 17
                                                 }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                                    children: "Director:"
+                                                }, void 0, false, {
+                                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                                    lineNumber: 82,
+                                                    columnNumber: 17
+                                                }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                     className: "mb-3",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                                        variant: "dark",
+                                                        variant: "secondary",
                                                         className: "px-2 py-0 me-2",
                                                         onClick: ()=>navigate(`/directors/${encodeURIComponent(selectedMovie.director)}`),
                                                         children: selectedMovie.director
                                                     }, void 0, false, {
                                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                                        lineNumber: 71,
+                                                        lineNumber: 84,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 70,
+                                                    lineNumber: 83,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                                                    className: "fw-bold",
                                                     children: "Cast:"
                                                 }, void 0, false, {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 85,
+                                                    lineNumber: 98,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                     children: selectedMovie.actors.map((actor, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                                                variant: "dark",
+                                                                variant: "secondary",
                                                                 className: "px-2 py-0 me-2 mb-2",
                                                                 onClick: ()=>navigate(`/actors/${encodeURIComponent(actor)}`),
                                                                 children: actor
                                                             }, index, false, {
                                                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                                                lineNumber: 89,
+                                                                lineNumber: 102,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false))
                                                 }, void 0, false, {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 86,
+                                                    lineNumber: 99,
                                                     columnNumber: 17
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 53,
+                                            lineNumber: 67,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "align-content-end",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                className: "fav-buttonB p-0",
+                                                className: "fav-buttonB p-0 fw-bold",
                                                 onClick: ()=>onFavToggle(selectedMovie.id, user),
                                                 title: "Toggle favourite",
                                                 children: isFav ? "\u2605" : "\u2606"
                                             }, void 0, false, {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 104,
+                                                lineNumber: 117,
                                                 columnNumber: 17
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 103,
+                                            lineNumber: 116,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 52,
+                                    lineNumber: 66,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 51,
+                                lineNumber: 65,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 114,
+                                lineNumber: 127,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 45,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 37,
+                lineNumber: 51,
                 columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 130,
+                columnNumber: 1
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                 className: "g-4 mb-5 p-0",
@@ -19144,7 +19174,7 @@ const MovieView = ({ onFavToggle })=>{
                         children: "Similar movies"
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 119,
+                        lineNumber: 132,
                         columnNumber: 9
                     }, undefined),
                     similarMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -19160,18 +19190,18 @@ const MovieView = ({ onFavToggle })=>{
                                 onFavToggle: ()=>onFavToggle(movie.id, user)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 122,
+                                lineNumber: 135,
                                 columnNumber: 13
                             }, undefined)
                         }, movie.id, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 121,
+                            lineNumber: 134,
                             columnNumber: 11
                         }, undefined))
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 118,
+                lineNumber: 131,
                 columnNumber: 7
             }, undefined)
         ]
@@ -29292,8 +29322,8 @@ const BackButton = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
         variant: "link",
         onClick: ()=>navigate(-1),
-        className: "back-button link-secondary p-0",
-        children: "\uD83E\uDC08"
+        className: "back-button link-dark p-0",
+        children: "\u2BC7"
     }, void 0, false, {
         fileName: "src/components/back-button/back-button.jsx",
         lineNumber: 7,

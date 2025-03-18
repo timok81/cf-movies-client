@@ -76,6 +76,7 @@ const MainView = () => {
             }),
             description: obj.Description,
             featured: obj.Featured,
+            trailer: obj.TrailerPath,
           };
         });
 
@@ -149,7 +150,6 @@ const MainView = () => {
     return null;
   };
 
-
   //Clicking on fav button
   const handleFavToggle = async (movieId, user) => {
     if (user.FavouriteMovies.includes(movieId)) {
@@ -208,7 +208,7 @@ const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar />
-      <ToastContainer position="top-center"/>
+      <ToastContainer position="top-center" />
       <Row className="justify-content-center w-100 mx-0 content-row">
         <Col md={8}>
           <Routes>
@@ -269,9 +269,7 @@ const MainView = () => {
                     <Navigate to="/login" />
                   ) : (
                     <Col>
-                      <ProfileView
-                        onFavToggle={handleFavToggle}
-                      />
+                      <ProfileView onFavToggle={handleFavToggle} />
                     </Col>
                   )}
                 </>
