@@ -16,7 +16,7 @@ export const PersonCard = ({ person, type }) => {
           <Card.Img variant="top" src={person.image} />
         </div>
         <Card.Body className="mb-0 text-center">
-          <Card.Title className="fw-bold">{person.name}</Card.Title>
+          <Card.Title>{person.name}</Card.Title>
         </Card.Body>
       </Card>
     </Link>

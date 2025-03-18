@@ -34559,7 +34559,7 @@ function NavigationBar() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {
         "data-bs-theme": "dark",
         expand: "lg",
-        className: "bg-body-tertiary mb-5 w-100",
+        className: "bg-body-tertiary mb-5 w-100 navbar",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
             fluid: true,
             children: [
@@ -35833,7 +35833,6 @@ const PersonCard = ({ person, type })=>{
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
                     className: "mb-0 text-center",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
-                        className: "fw-bold",
                         children: person.name
                     }, void 0, false, {
                         fileName: "src/components/person-card/person-card.jsx",
@@ -35907,7 +35906,7 @@ const ActorView = ({ onFavToggle })=>{
         className: "justify-content-center mx-1",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "border rounded p-3 movie-view-main",
+                className: "p-0",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         md: 4,
@@ -35993,8 +35992,8 @@ const ActorView = ({ onFavToggle })=>{
                                                     children: "Died:"
                                                 }, void 0, false, {
                                                     fileName: "src/components/actor-view/actor-view.jsx",
-                                                    lineNumber: 45,
-                                                    columnNumber: 41
+                                                    lineNumber: 46,
+                                                    columnNumber: 19
                                                 }, undefined),
                                                 " ",
                                                 selectedActor.death
@@ -36006,14 +36005,14 @@ const ActorView = ({ onFavToggle })=>{
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                             fileName: "src/components/actor-view/actor-view.jsx",
-                                            lineNumber: 47,
+                                            lineNumber: 50,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             children: selectedActor.bio
                                         }, void 0, false, {
                                             fileName: "src/components/actor-view/actor-view.jsx",
-                                            lineNumber: 48,
+                                            lineNumber: 51,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
@@ -36033,23 +36032,28 @@ const ActorView = ({ onFavToggle })=>{
                                     className: "d-flex justify-content-between"
                                 }, void 0, false, {
                                     fileName: "src/components/actor-view/actor-view.jsx",
-                                    lineNumber: 52,
+                                    lineNumber: 55,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/actor-view/actor-view.jsx",
-                                lineNumber: 51,
+                                lineNumber: 54,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/components/actor-view/actor-view.jsx",
-                                lineNumber: 54,
+                                lineNumber: 57,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/actor-view/actor-view.jsx",
                         lineNumber: 31,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/actor-view/actor-view.jsx",
+                        lineNumber: 59,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -36065,7 +36069,7 @@ const ActorView = ({ onFavToggle })=>{
                         children: "Movies"
                     }, void 0, false, {
                         fileName: "src/components/actor-view/actor-view.jsx",
-                        lineNumber: 59,
+                        lineNumber: 63,
                         columnNumber: 9
                     }, undefined),
                     starredMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -36081,18 +36085,18 @@ const ActorView = ({ onFavToggle })=>{
                                 onFavToggle: ()=>onFavToggle(movie.id, user)
                             }, void 0, false, {
                                 fileName: "src/components/actor-view/actor-view.jsx",
-                                lineNumber: 62,
+                                lineNumber: 66,
                                 columnNumber: 13
                             }, undefined)
                         }, movie.id, false, {
                             fileName: "src/components/actor-view/actor-view.jsx",
-                            lineNumber: 61,
+                            lineNumber: 65,
                             columnNumber: 11
                         }, undefined))
                 ]
             }, void 0, true, {
                 fileName: "src/components/actor-view/actor-view.jsx",
-                lineNumber: 58,
+                lineNumber: 62,
                 columnNumber: 7
             }, undefined)
         ]
@@ -36509,7 +36513,7 @@ const DirectorView = ({ onFavToggle })=>{
         className: "justify-content-center mx-1",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "border rounded p-3 movie-view-main",
+                className: "p-0",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         md: 4,
@@ -36666,6 +36670,11 @@ const DirectorView = ({ onFavToggle })=>{
                         fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 32,
                         columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/director-view/director-view.jsx",
+                        lineNumber: 65,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
@@ -36680,7 +36689,7 @@ const DirectorView = ({ onFavToggle })=>{
                         children: "Movies"
                     }, void 0, false, {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 68,
+                        lineNumber: 69,
                         columnNumber: 9
                     }, undefined),
                     directedMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -36696,18 +36705,18 @@ const DirectorView = ({ onFavToggle })=>{
                                 onFavToggle: ()=>onFavToggle(movie.id, user)
                             }, void 0, false, {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 71,
+                                lineNumber: 72,
                                 columnNumber: 13
                             }, undefined)
                         }, movie.id, false, {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 70,
+                            lineNumber: 71,
                             columnNumber: 11
                         }, undefined))
                 ]
             }, void 0, true, {
                 fileName: "src/components/director-view/director-view.jsx",
-                lineNumber: 67,
+                lineNumber: 68,
                 columnNumber: 7
             }, undefined)
         ]
@@ -36770,7 +36779,7 @@ const GenreView = ({ onFavToggle })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                        className: "h-50 align-content-start",
+                        className: "align-content-start",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36808,7 +36817,7 @@ const GenreView = ({ onFavToggle })=>{
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "border rounded movie-view-main p-3",
+                                    className: "p-0",
                                     children: selectedGenre.description
                                 }, void 0, false, {
                                     fileName: "src/components/genre-view/genre-view.jsx",
@@ -36828,7 +36837,12 @@ const GenreView = ({ onFavToggle })=>{
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 38,
+                        lineNumber: 36,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                        fileName: "src/components/genre-view/genre-view.jsx",
+                        lineNumber: 37,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -36844,7 +36858,7 @@ const GenreView = ({ onFavToggle })=>{
                         children: "Movies in genre"
                     }, void 0, false, {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 42,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, undefined),
                     genreMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -36860,18 +36874,18 @@ const GenreView = ({ onFavToggle })=>{
                                 onFavToggle: ()=>onFavToggle(movie.id, user)
                             }, void 0, false, {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 45,
+                                lineNumber: 44,
                                 columnNumber: 13
                             }, undefined)
                         }, movie.id, false, {
                             fileName: "src/components/genre-view/genre-view.jsx",
-                            lineNumber: 44,
+                            lineNumber: 43,
                             columnNumber: 11
                         }, undefined))
                 ]
             }, void 0, true, {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 41,
+                lineNumber: 40,
                 columnNumber: 7
             }, undefined)
         ]

@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { setToken, setUser } from "../redux/reducers/user/user";
+import { setToken, setUser } from "../../redux/reducers/user/user";
 
 function NavigationBar() {
   const user = useSelector((state) => state.user.user);
@@ -13,7 +13,7 @@ function NavigationBar() {
     <Navbar
       data-bs-theme="dark"
       expand="lg"
-      className="bg-body-tertiary mb-5 w-100"
+      className="bg-body-tertiary mb-5 w-100 navbar"
     >
       <Container fluid>
         <Navbar.Brand href="/">MovieDB</Navbar.Brand>

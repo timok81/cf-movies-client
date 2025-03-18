@@ -21,7 +21,7 @@ export const DirectorView = ({ onFavToggle }) => {
 
   return (
     <Row className="justify-content-center mx-1">
-      <Row className="border rounded p-3 movie-view-main">
+      <Row className="p-0">
         <Col md={4} className="mb-4">
           <img
             src={selectedDirector.image}
@@ -62,6 +62,7 @@ export const DirectorView = ({ onFavToggle }) => {
           </Row>
           <br />
         </Col>
+        <hr />
       </Row>
 
       <Row className="g-4 mb-5 p-0">

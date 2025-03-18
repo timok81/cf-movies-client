@@ -1,12 +1,26 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
+$bg-main-color: rgb(255, 255, 255);
+$bg-dark-color: rgb(33, 37, 41);
+$fav-button-color: rgb(56, 62, 68);
+$fav-button-hover-color:  rgb(255, 174, 0);
+$box-shadow-color: rgb(0, 0, 0, 0.25);
+
+:root {
+  --bg-main-color: #{$bg-main-color};
+  --bg-dark-color: #{$bg-dark-color};
+  --fav-button-color: #($fav-button-color);
+  --fav-button-hover-color: #($fav-button-hover-color)
+  --box-shadow-color: #($box-shadow-color)
+}
+
 html {
   overflow-x: hidden;
 }
 
 .footer {
   max-height: 5rem;
-  background-color: rgb(33, 37, 41);
+  background-color: $bg-dark-color;
   font-size: 0.75rem;
   color: rgb(168, 168, 168);
 }
@@ -23,7 +37,7 @@ html {
 .movie-card,
 .person-card,
 .genre-card {
-  box-shadow: 0px 2px 3px rgb(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 3px $box-shadow-color;
   transition: transform 0.15s;
   will-change: transform;
 }
@@ -31,12 +45,12 @@ html {
 .movie-card:hover,
 .person-card:hover,
 .genre-card:hover {
-  box-shadow: 0px 3px 10px rgb(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 10px $box-shadow-color;
   transform: scale(105%);
 }
 
 .movie-view-main {
-  box-shadow: 0px 3px 10px rgb(0, 0, 0, 0.15);
+  box-shadow: 0px 3px 10px $box-shadow-color;
   background-image: linear-gradient(
     rgb(255, 255, 255, 0),
     rgb(33, 37, 41, 0.05)
@@ -51,11 +65,11 @@ html {
   right: 0;
   bottom: -0.75rem;
   z-index: 1;
-  color: rgb(33, 37, 41);
+  color: $fav-button-color;
 }
 
 .fav-button:hover {
-  color: rgb(255, 174, 0);
+  color: $fav-button-hover-color;
 }
 
 .fav-buttonB {
@@ -63,18 +77,18 @@ html {
   border: none;
   background: none;
   z-index: 1;
-  color: rgb(33, 37, 41);
+  color: $fav-button-color;
   height: 60px;
   width: 60px;
 }
 
 .fav-buttonB:hover {
-  color: rgb(255, 174, 0);
+  color: $fav-button-hover-color;
 }
 
 body {
   font-family: "Liter", serif;
-  background-color: white;
+  background-color: $bg-main-color;
 }
 
 .welcome {
@@ -95,11 +109,8 @@ body {
   position: relative;
 }
 
-.featured-opacity {
-  background-color: rgb(255, 255, 255, 0.5);
-  position: absolute;
-  min-height: 25rem;
-  z-index: 1;
+.navbar {
+  box-shadow: 0px 3px 6px rgb(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 768px) {

@@ -13155,6 +13155,13 @@ textarea.form-control-lg {
   }
 }
 
+:root {
+  --bg-main-color: #fff;
+  --bg-dark-color: #212529;
+  --fav-button-color: # ($ fav-button-color);
+  --fav-button-hover-color: # ($ fav-button-hover-color) --box-shadow-color:# ($ box-shadow-color);
+}
+
 html {
   overflow-x: hidden;
 }
@@ -13188,12 +13195,12 @@ html {
 
 .movie-view-main {
   background-image: linear-gradient(#fff0, #2125290d);
-  box-shadow: 0 3px 10px #00000026;
+  box-shadow: 0 3px 10px #00000040;
 }
 
 .fav-button {
   z-index: 1;
-  color: #212529;
+  color: #383e44;
   background: none;
   border: none;
   font-size: 3rem;
@@ -13208,7 +13215,7 @@ html {
 
 .fav-buttonB {
   z-index: 1;
-  color: #212529;
+  color: #383e44;
   background: none;
   border: none;
   width: 60px;
@@ -13243,11 +13250,8 @@ body {
   position: relative;
 }
 
-.featured-opacity {
-  z-index: 1;
-  background-color: #ffffff80;
-  min-height: 25rem;
-  position: absolute;
+.navbar {
+  box-shadow: 0 3px 6px #00000080;
 }
 
 @media screen and (width <= 768px) {
@@ -13276,14 +13280,6 @@ span {
   border-radius: 5px;
   font-size: 1.25rem;
   position: absolute;
-}
-
-.person-card {
-  box-shadow: 0 5px 3px #00000026;
-}
-
-.person-card:hover {
-  box-shadow: 0 3px 10px #00000026;
 }
 
 .image-wrapper {

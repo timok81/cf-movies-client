@@ -20,7 +20,7 @@ export const GenreView = ({ onFavToggle }) => {
   return (
     <Row className="justify-content-center">
       <Col>
-        <Row className="h-50 align-content-start">
+        <Row className="align-content-start">
           <Col>
             <div className="d-flex justify-content-between align-items-center">
               <div className="d-flex align-items-center">
@@ -30,12 +30,11 @@ export const GenreView = ({ onFavToggle }) => {
             </div>
 
             <br />
-            <div className="border rounded movie-view-main p-3">
-              {selectedGenre.description}
-            </div>
+            <div className="p-0">{selectedGenre.description}</div>
           </Col>
         </Row>
         <br />
+        <hr />
       </Col>
 
       <Row className="g-4 mb-5 p-0">
