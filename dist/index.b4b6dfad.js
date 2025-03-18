@@ -34380,7 +34380,7 @@ const SignupView = ()=>{
                                 children: focus === "confirmPassword" && "Your password must have at least 8 characters and may not contain spaces."
                             }, void 0, false, {
                                 fileName: "src/components/signup-view/signup-view.jsx",
-                                lineNumber: 124,
+                                lineNumber: 126,
                                 columnNumber: 11
                             }, undefined)
                         ]
@@ -34394,7 +34394,7 @@ const SignupView = ()=>{
                         children: "Passwords do not match"
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 130,
+                        lineNumber: 132,
                         columnNumber: 11
                     }, undefined)
                 ]
@@ -34422,7 +34422,7 @@ const SignupView = ()=>{
                             onBlur: ()=>setFocus(null)
                         }, void 0, false, {
                             fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 140,
+                            lineNumber: 142,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Text, {
@@ -34431,18 +34431,18 @@ const SignupView = ()=>{
                             children: focus === "email" && "Your email must be valid."
                         }, void 0, false, {
                             fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 151,
+                            lineNumber: 153,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 135,
+                    lineNumber: 137,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 134,
+                lineNumber: 136,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -34452,7 +34452,7 @@ const SignupView = ()=>{
                         children: "Birthday:"
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 158,
+                        lineNumber: 160,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -34462,13 +34462,13 @@ const SignupView = ()=>{
                         className: "mb-4"
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 159,
+                        lineNumber: 161,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 157,
+                lineNumber: 159,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -34478,7 +34478,7 @@ const SignupView = ()=>{
                 children: "Create Account"
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 166,
+                lineNumber: 168,
                 columnNumber: 7
             }, undefined)
         ]
@@ -34934,8 +34934,6 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
-var _floatingLabel = require("react-bootstrap/FloatingLabel");
-var _floatingLabelDefault = parcelHelpers.interopDefault(_floatingLabel);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactRedux = require("react-redux");
@@ -34998,7 +34996,7 @@ const ProfileEdit = ()=>{
                 children: "Edit profile"
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-edit.jsx",
-                lineNumber: 77,
+                lineNumber: 76,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -35008,7 +35006,7 @@ const ProfileEdit = ()=>{
                         children: "Change username:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 80,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -35024,7 +35022,7 @@ const ProfileEdit = ()=>{
                         onBlur: ()=>setFocus(null)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 81,
+                        lineNumber: 80,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Text, {
@@ -35035,18 +35033,18 @@ const ProfileEdit = ()=>{
                             children: "Your username must be at least 5 characters long and may only contain letters and numbers."
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-edit.jsx",
-                            lineNumber: 95,
+                            lineNumber: 94,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 93,
+                        lineNumber: 92,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-edit.jsx",
-                lineNumber: 79,
+                lineNumber: 78,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -35056,7 +35054,7 @@ const ProfileEdit = ()=>{
                         children: "Change password:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 100,
+                        lineNumber: 99,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -35072,7 +35070,7 @@ const ProfileEdit = ()=>{
                         onBlur: ()=>setFocus(null)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 101,
+                        lineNumber: 100,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Text, {
@@ -35083,18 +35081,18 @@ const ProfileEdit = ()=>{
                             children: "Your password must have at least 8 characters and may not contain spaces."
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-edit.jsx",
-                            lineNumber: 115,
+                            lineNumber: 114,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 113,
+                        lineNumber: 112,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-edit.jsx",
-                lineNumber: 99,
+                lineNumber: 98,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -35116,7 +35114,7 @@ const ProfileEdit = ()=>{
                         onBlur: ()=>setFocus(null)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 120,
+                        lineNumber: 119,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Text, {
@@ -35127,12 +35125,12 @@ const ProfileEdit = ()=>{
                             children: "Your password must have at least 8 characters and may not contain spaces."
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-edit.jsx",
-                            lineNumber: 139,
+                            lineNumber: 138,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 137,
+                        lineNumber: 136,
                         columnNumber: 9
                     }, undefined),
                     !passwordsMatch && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35140,13 +35138,13 @@ const ProfileEdit = ()=>{
                         children: "Passwords do not match"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 143,
+                        lineNumber: 142,
                         columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-edit.jsx",
-                lineNumber: 119,
+                lineNumber: 118,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -35156,7 +35154,7 @@ const ProfileEdit = ()=>{
                         children: "Change e-mail:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 148,
+                        lineNumber: 147,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -35170,7 +35168,7 @@ const ProfileEdit = ()=>{
                         onBlur: ()=>setFocus(null)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 149,
+                        lineNumber: 148,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Text, {
@@ -35181,18 +35179,18 @@ const ProfileEdit = ()=>{
                             children: "Your email must be valid."
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-edit.jsx",
-                            lineNumber: 160,
+                            lineNumber: 159,
                             columnNumber: 33
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 159,
+                        lineNumber: 158,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-edit.jsx",
-                lineNumber: 147,
+                lineNumber: 146,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -35202,7 +35200,7 @@ const ProfileEdit = ()=>{
                         children: "Change birthday:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 165,
+                        lineNumber: 164,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -35212,13 +35210,13 @@ const ProfileEdit = ()=>{
                         className: "mb-4"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-edit.jsx",
-                        lineNumber: 166,
+                        lineNumber: 165,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/profile-edit.jsx",
-                lineNumber: 164,
+                lineNumber: 163,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -35227,13 +35225,13 @@ const ProfileEdit = ()=>{
                 children: "Save changes"
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-edit.jsx",
-                lineNumber: 173,
+                lineNumber: 172,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/profile-edit.jsx",
-        lineNumber: 66,
+        lineNumber: 65,
         columnNumber: 5
     }, undefined);
 };
@@ -35256,7 +35254,7 @@ $RefreshReg$(_c, "ProfileEdit");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","./profile-view.scss":"eyKYH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","prop-types":"7wKI2","react-redux":"62sf7","../../redux/reducers/user/user":"gtUqg","react-toastify":"lV1rO","react-bootstrap/FloatingLabel":"coYzo"}],"eyKYH":[function() {},{}],"l0qwl":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","./profile-view.scss":"eyKYH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","prop-types":"7wKI2","react-redux":"62sf7","../../redux/reducers/user/user":"gtUqg","react-toastify":"lV1rO"}],"eyKYH":[function() {},{}],"l0qwl":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies);

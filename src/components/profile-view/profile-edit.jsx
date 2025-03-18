@@ -2,7 +2,6 @@ import "./profile-view.scss";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
 import "./profile-view.scss";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
@@ -173,14 +172,6 @@ export const ProfileEdit = () => {
       <Button variant="primary" type="submit">
         Save changes
       </Button>
-      {/* {updateSuccess && (
-        <p
-          style={{ color: "SeaGreen" }}
-          className="account-update-notification mb-0"
-        >
-          <strong>Account information updated</strong>
-        </p>
-      )} */}
     </form>
   );
 };
