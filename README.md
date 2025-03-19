@@ -21,3 +21,17 @@ The app can be viewed here: https://muhviedb.netlify.app/
 - Browse movies, actors, directors, genres
 - Search for movies by name, genre or director
 - Add movies to favourites
+
+## Technologies used
+
+- React
+- React Bootstrap
+- React Redux
+- Parcel
+
+## Images
+
+![Screenshot of the app](/src/assets/project3_screenshot1.png)
+![Screenshot of the app](/src/assets/project3_screenshot2.png)
+![Screenshot of the app](/src/assets/project3_screenshot3.png)
+![Screenshot of the app](/src/assets/project3_screenshot4.png)
