@@ -18966,7 +18966,7 @@ const MovieView = ({ onFavToggle })=>{
                         title: "Interstellar Movie - Official Trailer",
                         frameBorder: "0",
                         allow: "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
-                        referrerpolicy: "strict-origin-when-cross-origin"
+                        referrerPolicy: "strict-origin-when-cross-origin"
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 39,
@@ -18985,7 +18985,7 @@ const MovieView = ({ onFavToggle })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 50,
-                columnNumber: 1
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                 className: "rounded p-0 mb-3",
@@ -19094,18 +19094,22 @@ const MovieView = ({ onFavToggle })=>{
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    children: selectedMovie.actors.map((actor, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                                    children: selectedMovie.actors.map((actor, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                                                                 variant: "secondary",
                                                                 className: "px-2 py-0 me-2 mb-2",
                                                                 onClick: ()=>navigate(`/actors/${encodeURIComponent(actor)}`),
                                                                 children: actor
-                                                            }, index, false, {
+                                                            }, void 0, false, {
                                                                 fileName: "src/components/movie-view/movie-view.jsx",
                                                                 lineNumber: 102,
                                                                 columnNumber: 23
                                                             }, undefined)
-                                                        }, void 0, false))
+                                                        }, index, false, {
+                                                            fileName: "src/components/movie-view/movie-view.jsx",
+                                                            lineNumber: 101,
+                                                            columnNumber: 21
+                                                        }, undefined))
                                                 }, void 0, false, {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
                                                     lineNumber: 99,
@@ -19126,12 +19130,12 @@ const MovieView = ({ onFavToggle })=>{
                                                 children: isFav ? "\u2605" : "\u2606"
                                             }, void 0, false, {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 117,
+                                                lineNumber: 116,
                                                 columnNumber: 17
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 116,
+                                            lineNumber: 115,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
@@ -19147,7 +19151,7 @@ const MovieView = ({ onFavToggle })=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 127,
+                                lineNumber: 126,
                                 columnNumber: 11
                             }, undefined)
                         ]
@@ -19164,8 +19168,8 @@ const MovieView = ({ onFavToggle })=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 130,
-                columnNumber: 1
+                lineNumber: 129,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                 className: "g-4 mb-5 p-0",
@@ -19174,11 +19178,10 @@ const MovieView = ({ onFavToggle })=>{
                         children: "Similar movies"
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 132,
+                        lineNumber: 131,
                         columnNumber: 9
                     }, undefined),
                     similarMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                            className: "",
                             xs: 12,
                             sm: 6,
                             md: 4,
@@ -19190,18 +19193,18 @@ const MovieView = ({ onFavToggle })=>{
                                 onFavToggle: ()=>onFavToggle(movie.id, user)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 135,
+                                lineNumber: 134,
                                 columnNumber: 13
                             }, undefined)
                         }, movie.id, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 134,
+                            lineNumber: 133,
                             columnNumber: 11
                         }, undefined))
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 131,
+                lineNumber: 130,
                 columnNumber: 7
             }, undefined)
         ]

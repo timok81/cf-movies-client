@@ -43,11 +43,11 @@ export const MovieView = ({ onFavToggle }) => {
             title="Interstellar Movie - Official Trailer"
             frameBorder="0"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
+            referrerPolicy="strict-origin-when-cross-origin"
           ></iframe>
         </div>
       </Row>
-<hr />
+      <hr />
       <Row className="rounded p-0 mb-3">
         <Col md={4} className="p-0">
           <img
@@ -98,9 +98,8 @@ export const MovieView = ({ onFavToggle }) => {
                 <h4>Cast:</h4>
                 <div>
                   {selectedMovie.actors.map((actor, index) => (
-                    <>
+                    <div key={index}>
                       <Button
-                        key={index}
                         variant="secondary"
                         className="px-2 py-0 me-2 mb-2"
                         onClick={() =>
@@ -109,7 +108,7 @@ export const MovieView = ({ onFavToggle }) => {
                       >
                         {actor}
                       </Button>
-                    </>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -127,11 +126,11 @@ export const MovieView = ({ onFavToggle }) => {
           <br />
         </Col>
       </Row>
-<hr />
+      <hr />
       <Row className="g-4 mb-5 p-0">
         <h2>Similar movies</h2>
         {similarMovies.map((movie) => (
-          <Col className="" key={movie.id} xs={12} sm={6} md={4} lg={4} xl={3}>
+          <Col key={movie.id} xs={12} sm={6} md={4} lg={4} xl={3}>
             <MovieCard
               movie={movie}
               isFav={user?.FavouriteMovies?.includes(movie.id) || false}
