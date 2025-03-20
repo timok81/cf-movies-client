@@ -35,3 +35,4 @@ The app can be viewed here: https://muhviedb.netlify.app/
 ![Screenshot of the app](/src/assets/project3_screenshot2.png)
 ![Screenshot of the app](/src/assets/project3_screenshot3.png)
 ![Screenshot of the app](/src/assets/project3_screenshot4.png)
+![Screenshot of the app](/src/assets/project3_screenshot5.png)
