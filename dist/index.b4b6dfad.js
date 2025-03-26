@@ -35230,7 +35230,7 @@ const MovieList = ({ onFavToggle })=>{
                                     onClick: ()=>setFeaturedIndex((featuredIndex - 1 + movies.length) % movies.length),
                                     className: "featured-prev",
                                     title: "Previous movie",
-                                    children: "\u2BC7"
+                                    children: "\u25C0"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-list/movie-list.jsx",
                                     lineNumber: 52,

@@ -58,7 +58,7 @@ export const MovieList = ({ onFavToggle }) => {
               className="featured-prev"
               title="Previous movie"
             >
-              ⯇
+              ◀
             </button>
           </Col>
           <Col className="text-center">
