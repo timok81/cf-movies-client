@@ -212,7 +212,7 @@ const MainView = () => {
       <NavigationBar />
       <ToastContainer position="top-center" />
       <Row className="justify-content-center w-100 mx-0 content-row">
-        <Col md={8}>
+        <Col md={12} lg={8}>
           <Routes>
             <Route path="/api-documentation" element={<RedirectToSwagger />} />
             <Route

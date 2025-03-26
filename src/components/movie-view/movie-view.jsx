@@ -34,7 +34,7 @@ export const MovieView = ({ onFavToggle }) => {
         </div>
       </Row>
 
-      <Row className="mb-4 p-0">
+      <Row className="mb-5 p-0">
         <div className="ratio ratio-16x9 p-0 m-0">
           <iframe
             width="1250"
@@ -47,9 +47,9 @@ export const MovieView = ({ onFavToggle }) => {
           ></iframe>
         </div>
       </Row>
-      <hr />
-      <Row className="rounded p-0 mb-3">
-        <Col md={4} className="p-0">
+      
+      <Row className="rounded p-0 bg-light border rounded-4 p-4">
+        <Col sm={3} className="p-0 me-2">
           <img
             src={selectedMovie.image}
             className="w-100 rounded movie-view-image"
@@ -64,9 +64,9 @@ export const MovieView = ({ onFavToggle }) => {
           </Row>
           <Row className="h-75 d-flex align-content-end">
             <div className="d-flex justify-content-between">
-              <div className="w-100">
-                <h4>Genre:</h4>
+              <div className="d-flex flex-wrap">
                 <div className="mb-3">
+                <p>Genre:</p>
                   <Button
                     variant="secondary"
                     className="px-2 py-0 me-2"
@@ -79,8 +79,8 @@ export const MovieView = ({ onFavToggle }) => {
                     {selectedMovie.genre}
                   </Button>
                 </div>
-                <h4>Director:</h4>
                 <div className="mb-3">
+                <p>Director:</p>
                   <Button
                     variant="secondary"
                     className="px-2 py-0 me-2"
@@ -95,8 +95,8 @@ export const MovieView = ({ onFavToggle }) => {
                     {selectedMovie.director}
                   </Button>
                 </div>
-                <h4>Cast:</h4>
                 <div>
+                <p>Cast:</p>
                   {selectedMovie.actors.map((actor, index) => (
                     <div key={index}>
                       <Button
@@ -112,7 +112,7 @@ export const MovieView = ({ onFavToggle }) => {
                   ))}
                 </div>
               </div>
-              <div className="align-content-end">
+              <div className="">
                 <button
                   className="fav-buttonB p-0 fw-bold"
                   onClick={() => onFavToggle(selectedMovie.id, user)}
@@ -126,7 +126,7 @@ export const MovieView = ({ onFavToggle }) => {
           <br />
         </Col>
       </Row>
-      <hr />
+      
       <Row className="g-4 mb-5 p-0">
         <h2>Similar movies</h2>
         {similarMovies.map((movie) => (

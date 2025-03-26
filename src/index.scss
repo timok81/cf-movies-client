@@ -1,13 +1,15 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 $bg-main-color: rgb(255, 255, 255);
-$bg-dark-color: rgb(33, 37, 41);
+$bg-accent-color: rgb(164, 192, 224);
+$bg-dark-color: rgb(48, 55, 61);
 $fav-button-color: rgb(56, 62, 68);
 $fav-button-hover-color:  rgb(255, 174, 0);
-$box-shadow-color: rgb(0, 0, 0, 0.25);
+$box-shadow-color: rgb(0, 0, 0, 0.1);
 
 :root {
   --bg-main-color: #{$bg-main-color};
+  --bg-accent-color: #{$bg-accent-color};
   --bg-dark-color: #{$bg-dark-color};
   --fav-button-color: #($fav-button-color);
   --fav-button-hover-color: #($fav-button-hover-color)
@@ -16,6 +18,10 @@ $box-shadow-color: rgb(0, 0, 0, 0.25);
 
 html {
   overflow-x: hidden;
+}
+
+p {
+  margin: 0;
 }
 
 .footer {
@@ -37,7 +43,7 @@ html {
 .movie-card,
 .person-card,
 .genre-card {
-  box-shadow: 0px 2px 3px $box-shadow-color;
+  box-shadow: 0 4px 7px $box-shadow-color;
   transition: transform 0.15s;
   will-change: transform;
 }
@@ -45,8 +51,7 @@ html {
 .movie-card:hover,
 .person-card:hover,
 .genre-card:hover {
-  box-shadow: 0px 3px 10px $box-shadow-color;
-  transform: scale(105%);
+  transform: scale(1.025);
 }
 
 .movie-view-main {
@@ -78,8 +83,6 @@ html {
   background: none;
   z-index: 1;
   color: $fav-button-color;
-  height: 60px;
-  width: 60px;
 }
 
 .fav-buttonB:hover {
@@ -113,9 +116,92 @@ body {
   box-shadow: 0px 3px 6px rgb(0, 0, 0, 0.5);
 }
 
+.movie-list {
+  overflow-x: visible;
+}
+
+.featured-prev, .featured-next {
+  border: 0;
+  background: transparent;
+  font-size: 2rem;
+  transition: transform 0.1s;
+}
+
+
+.featured-prev:hover, .featured-next:hover {
+  transform: scale(1.25);
+}
+
+
+.featured-list {
+  display: flex;
+}
+
+.featured-view {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+}
+
+.featured-image-container {
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+
+.featured-image {
+  max-width: 200px;
+}
+
+.featured-description {
+  grid-row: 1 / 2;
+  grid-column: 2/3;
+}
+
+.featured-details {
+  display: flex;
+  width: 100%;
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+
+@media screen and (max-width: 550px) {
+  .hide-on-small {
+    display: none;
+  }
+  .featured-description {
+    grid-column: 1/3;
+    grid-row: 2/3;
+  }
+  .featured-image {
+    max-width: 150px;
+  }
+  .featured-image-container {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: center;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .movie-view-image {
     margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 1100) {
+  .hide-on-medium {
+    display: none;
+  }
+  
+.featured-image-container {
+  grid-row: 1/2;
+}
+  .featured-details {
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+  }
+  .featured-description, .featured-details {
+    padding: 0 0 0 1.5rem;
   }
 }
 
