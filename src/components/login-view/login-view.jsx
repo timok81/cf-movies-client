@@ -6,6 +6,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { useDispatch } from "react-redux";
 import { setToken, setUser } from "../../redux/reducers/user/user";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -73,6 +74,14 @@ export const LoginView = ({ onLoggedIn }) => {
           />
         </FloatingLabel>
       </Form.Group>
+      <Link
+        to={`/signup`}
+        className="link-primary"
+      >
+        No account? Sign up!
+      </Link>
+      <br />
+      <br />
       <Button variant="primary" type="submit">
         Submit
       </Button>
