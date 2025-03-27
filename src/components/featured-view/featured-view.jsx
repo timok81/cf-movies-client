@@ -16,7 +16,7 @@ export const FeaturedView = ({ movie }) => {
   return (
     selectedMovie && (
       <div className="justify-content-center featured-view">
-        <div className="p-4 featured-image-container text-center justify-content-center` ">
+        <div className="p-4 featured-image-container text-center justify-content-center">
           <Link to={`/movies/${encodeURIComponent(movieId)}`}>
             <img
               src={selectedMovie?.image}

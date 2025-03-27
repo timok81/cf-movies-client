@@ -13209,8 +13209,8 @@ p {
   border: none;
   font-size: 3rem;
   position: absolute;
-  bottom: -.75rem;
-  right: 0;
+  bottom: -.5rem;
+  right: .25rem;
 }
 
 .fav-button:hover {
@@ -13258,6 +13258,19 @@ body {
 
 .movie-list {
   overflow-x: visible;
+}
+
+.featured-container {
+  visibility: visible;
+  height: auto;
+  transition: transform .3s;
+}
+
+.featured-container-hidden {
+  visibility: hidden;
+  height: 0;
+  transition: transform .3s;
+  overflow: hidden;
 }
 
 .featured-prev, .featured-next {
@@ -13339,7 +13352,7 @@ body {
   }
 
   .featured-description, .featured-details {
-    padding: 0 0 0 1.5rem;
+    padding: 0 1rem;
   }
 }
 
