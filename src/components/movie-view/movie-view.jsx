@@ -59,10 +59,25 @@ export const MovieView = ({ onFavToggle }) => {
         </Col>
         <Col className="movie-view-info">
           <Row className="h-25">
-            <Row className="mb-2">
-              <p>Rating</p>
-              <h2>{selectedMovie?.rating}%</h2>
-            </Row>
+            <div className="movie-description-header">
+              <div>
+                <p>Rating</p>
+                <h2 className="fw-bold">{selectedMovie?.rating}%</h2>
+              </div>
+              <div>
+                <button
+                  className={
+                    isFav
+                      ? "fav-button-large"
+                      : "fav-button-large fav-button-large-unactivated"
+                  }
+                  onClick={() => onFavToggle(selectedMovie?.id, user)}
+                  title="Toggle favourite"
+                >
+                  {isFav ? "★" : "☆"}
+                </button>
+              </div>
+            </div>
             <Col>
               <div>{selectedMovie?.description}</div>
             </Col>
@@ -116,19 +131,7 @@ export const MovieView = ({ onFavToggle }) => {
                   </Button>
                 </div>
               </div>
-              <div className="">
-                <button
-                  className={
-                    isFav
-                      ? "fav-button-large"
-                      : "fav-button-large fav-button-large-unactivated"
-                  }
-                  onClick={() => onFavToggle(selectedMovie?.id, user)}
-                  title="Toggle favourite"
-                >
-                  {isFav ? "★" : "☆"}
-                </button>
-              </div>
+              <div className=""></div>
             </div>
           </Row>
           <br />

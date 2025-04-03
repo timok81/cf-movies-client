@@ -5,7 +5,7 @@ $bg-accent-color: rgb(164, 192, 224);
 $bg-dark-color: rgb(48, 55, 61);
 $fav-button-color: rgb(56, 62, 68);
 $fav-button-activated-color: rgb(57, 87, 170);
-$fav-button-hover-color:  rgb(86, 140, 255);
+$fav-button-hover-color:  rgb(109, 127, 231);
 $box-shadow-color: rgb(0, 0, 0, 0.1);
 
 :root {
@@ -125,7 +125,7 @@ color: rgb(0, 216, 133);
   background: none;
   z-index: 1;
   color: $fav-button-activated-color;
-  transition: transform 0.15s;
+  transition: all 0.15s;
 }
 
 .fav-button-large-unactivated {
@@ -300,6 +300,11 @@ body {
   width: 100%;
   grid-row: 2/3;
   grid-column: 2/3;
+}
+
+.movie-description-header {
+ display: flex;
+ justify-content: space-between;
 }
 
 @media screen and (max-width: 550px) {

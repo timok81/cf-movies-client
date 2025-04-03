@@ -13249,7 +13249,7 @@ p {
 }
 
 .fav-button:hover {
-  color: #568cff;
+  color: #6d7fe7;
   transform: scale(1.25);
 }
 
@@ -13263,7 +13263,7 @@ p {
   background: none;
   border: none;
   font-size: 3rem;
-  transition: transform .15s;
+  transition: all .15s;
 }
 
 .fav-button-large-unactivated {
@@ -13271,7 +13271,7 @@ p {
 }
 
 .fav-button-large:hover {
-  color: #568cff;
+  color: #6d7fe7;
   transform: scale(1.25);
 }
 
@@ -13434,6 +13434,11 @@ body {
 .featured-details {
   grid-area: 2 / 2 / 3 / 3;
   width: 100%;
+  display: flex;
+}
+
+.movie-description-header {
+  justify-content: space-between;
   display: flex;
 }
 
