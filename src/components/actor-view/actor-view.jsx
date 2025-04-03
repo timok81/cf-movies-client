@@ -15,7 +15,7 @@ export const ActorView = ({ onFavToggle }) => {
   const selectedActor = actors.find((actor) => actor.name === actorName);
 
   const starredMovies = movies.filter((movie) =>
-    movie.actors.includes(selectedActor.name)
+    selectedActor?.movies.includes(movie.id)
   );
 
   return (

@@ -8,7 +8,7 @@ import Pagination from "../pagination/pagination";
 import { ListFilter } from "../list-filter/list-filter";
 import { FeaturedView } from "../featured-view/featured-view";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const MovieList = ({ onFavToggle }) => {
   const [featuredIndex, setFeaturedIndex] = useState(0);
@@ -44,7 +44,7 @@ export const MovieList = ({ onFavToggle }) => {
     <Row className="justify-content-center p-3">
       <Row className="justify-content-center mb-5">
         <Col xs={10} sm={8} lg={6}>
-          <ListFilter />
+          <ListFilter contentType={"movies"} />
         </Col>
       </Row>
 
@@ -92,9 +92,19 @@ export const MovieList = ({ onFavToggle }) => {
         </Row>
       )}
 
+      {filteredMovies.length === 0 && filter !== "" && (
+        <Row>
+          <h3 className="text-center">No results</h3>
+        </Row>
+      )}
+
       <Row className="mb-4 p-0">
         {movies.length === 0 ? (
-          <Col className="text-center">Loading movies...</Col>
+          <Col className="text-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Col>
         ) : (
           <>
             {filteredMovies.map((movie) => (
@@ -115,14 +125,14 @@ export const MovieList = ({ onFavToggle }) => {
                 />
               </Col>
             ))}
-            {
+            {filteredMovies.length > 0 && (
               <Pagination
                 itemsPerPage={itemsPerPage}
                 itemsTotal={filter === "" ? movies.length : currentItems.length}
                 currentPage={currentPage}
                 handlePagination={handlePagination}
               />
-            }
+            )}
           </>
         )}
       </Row>

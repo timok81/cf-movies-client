@@ -16,7 +16,7 @@ function NavigationBar() {
       className="bg-body-tertiary mb-5 w-100 navbar"
     >
       <Container fluid>
-        <Navbar.Brand href="/">MovieDB</Navbar.Brand>
+        <Navbar.Brand href="/" title="Go to home page">MovieDB</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="ms-auto">
@@ -28,8 +28,7 @@ function NavigationBar() {
             )}
             {user && (
               <>
-                <Nav.Link href="/">Movies</Nav.Link>
-                <Nav.Link href="/genres">Genres</Nav.Link>
+                <Nav.Link href="/movies">Movies</Nav.Link>
                 <Nav.Link href="/directors">Directors</Nav.Link>
                 <Nav.Link href="/actors">Actors</Nav.Link>
                 

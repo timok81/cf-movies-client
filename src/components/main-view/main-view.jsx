@@ -24,6 +24,8 @@ import { GenreView } from "../genre-view/genre-view";
 import { Footer } from "../footer/footer";
 import { ToastContainer } from "react-toastify";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
+import { MoviesScroller } from "../movies-scroller/movies-scroller";
+import { ListFilter } from "../list-filter/list-filter";
 
 const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -70,58 +72,48 @@ const MainView = () => {
             name: obj.Name,
             image: obj.ImagePath,
             director: obj.Director.Name,
-            genre: obj.Genre.Name,
+            genre: obj.Genre,
             released: obj.Released,
             actors: obj.Actors.map((actor) => {
-              return actor.Name;
+              return {
+                name: actor.Name,
+                image: actor.ImagePath,
+              };
             }),
             description: obj.Description,
             featured: obj.Featured,
-            trailer: obj.TrailerPath,
+            trailer: obj.Trailers[0],
+            createdAt: obj.createdAt,
+            updatedAt: obj.updatedAt,
+            rating: Number(obj.Rating),
           };
         });
-
-        //Extract directors from movies
-        const directorsFromMovies = movies.map((obj) => {
-          return {
-            name: obj.Director.Name,
-            bio: obj.Director.Bio,
-            birth: obj.Director.BirthYear,
-            death: obj.Director.DeathYear,
-            image: obj.Director.ImagePath,
-          };
-        });
-
-        const objToId = ({ name }) => `${name}`;
-
-        const directorIds = directorsFromMovies.map(objToId);
-        const filteredDirectors = directorsFromMovies.filter(
-          (item, index) => !directorIds.includes(objToId(item), index + 1)
-        );
-
-        //Extract genres from movies
-        const genresFromMovies = movies.map((obj) => {
-          return {
-            name: obj.Genre.Name,
-            description: obj.Genre.Description,
-          };
-        });
-
-        const genreIds = genresFromMovies.map(objToId);
-        const filteredGenres = genresFromMovies.filter(
-          (item, index) => !genreIds.includes(objToId(item), index + 1)
-        );
-
-        dispatch(setDirectors(filteredDirectors));
-        dispatch(setGenres(filteredGenres));
         dispatch(setMovies(moviesFromApi));
       });
-  }, [token]);
 
-  //Fetch actors from api
-  useEffect(() => {
-    if (!token) return;
+    // Fetch directors
+    fetch("https://moviemovie-7703363b92cb.herokuapp.com/directors", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => response.json())
+      .then((directors) => {
+        const directorsFromApi = directors.map((obj) => {
+          return {
+            id: obj._id,
+            name: obj.Name,
+            bio: obj.Bio,
+            birth: obj.BirthYear,
+            death: obj.DeathYear,
+            image: obj.ImagePath,
+            movies: obj.Movies.map((movie) => {
+              return movie._id;
+            }),
+          };
+        });
+        dispatch(setDirectors(directorsFromApi));
+      });
 
+    // Fetch actors
     fetch("https://moviemovie-7703363b92cb.herokuapp.com/actors", {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -135,12 +127,16 @@ const MainView = () => {
             birth: obj.BirthYear,
             death: obj.DeathYear,
             image: obj.ImagePath,
+            movies: obj.Movies.map((movie) => {
+              return movie._id;
+            }),
           };
         });
         dispatch(setActors(actorsFromApi));
       });
   }, [token]);
 
+  //Redirect to swagger docs
   const RedirectToSwagger = () => {
     useEffect(() => {
       window.location.replace(
@@ -381,8 +377,48 @@ const MainView = () => {
                     <Navigate to="/login" replace />
                   ) : (
                     <>
-                      <MovieList onFavToggle={handleFavToggle} />
+                      <Row className="justify-content-center mb-5">
+                        <Col xs={10} sm={8} lg={6}>
+                          <ListFilter contentType={"movies"} />
+                        </Col>
+                      </Row>
+                      <MoviesScroller
+                        onFavToggle={handleFavToggle}
+                        heading={"Latest movies"}
+                        filterType={"latest"}
+                        contentType={"movie"}
+                      />
+                      <MoviesScroller
+                        onFavToggle={handleFavToggle}
+                        heading={"Latest trailers"}
+                        filterType={"latest"}
+                        contentType={"trailer"}
+                      />
+                      <MoviesScroller
+                        onFavToggle={handleFavToggle}
+                        heading={"Highest rated movies"}
+                        filterType={"topRated"}
+                        contentType={"movie"}
+                      />
+                      <MoviesScroller
+                        onFavToggle={handleFavToggle}
+                        heading={"Top genre picks"}
+                        filterType={"genre"}
+                        contentType={"movie"}
+                      />
                     </>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/movies"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : (
+                    <MovieList onFavToggle={handleFavToggle} />
                   )}
                 </>
               }

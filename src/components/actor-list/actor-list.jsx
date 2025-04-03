@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import { PersonCard } from "../person-card/person-card";
 import Pagination from "../pagination/pagination";
 import { ListFilter } from "../list-filter/list-filter";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const ActorList = () => {
   const actors = useSelector((state) => state.actors.list);
@@ -22,7 +23,7 @@ export const ActorList = () => {
   const filter = useSelector((state) => state.actors.filter)
     .trim()
     .toLowerCase();
-    
+
   const filteredActors =
     filter === ""
       ? currentItems
@@ -32,12 +33,23 @@ export const ActorList = () => {
     <>
       <Row className="justify-content-center mb-5">
         <Col xs={10} sm={8} lg={6}>
-          <ListFilter />
+          <ListFilter contentType={"actors"} />
         </Col>
       </Row>
+
+      {filteredActors.length === 0 && filter !== "" && (
+        <Row>
+          <h3 className="text-center">No results</h3>
+        </Row>
+      )}
+
       <Row className="">
         {actors.length === 0 ? (
-          <Col className="text-center">Loading actors...</Col>
+          <Col className="text-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Col>
         ) : (
           <>
             {filteredActors.map((actor) => (
@@ -53,14 +65,14 @@ export const ActorList = () => {
                 <PersonCard person={actor} type={"actor"} />
               </Col>
             ))}
-            {
+            {filteredActors.length > 0 && (
               <Pagination
                 itemsPerPage={itemsPerPage}
                 itemsTotal={filter === "" ? actors.length : currentItems.length}
                 currentPage={currentPage}
                 handlePagination={handlePagination}
               />
-            }
+            )}
           </>
         )}
       </Row>

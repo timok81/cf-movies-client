@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import { PersonCard } from "../person-card/person-card";
 import Pagination from "../pagination/pagination";
 import { ListFilter } from "../list-filter/list-filter";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const DirectorList = () => {
   const directors = useSelector((state) => state.directors.list);
@@ -34,12 +35,23 @@ export const DirectorList = () => {
     <>
       <Row className="justify-content-center mb-5">
         <Col xs={10} sm={8} lg={6}>
-          <ListFilter />
+          <ListFilter contentType={"directors"} />
         </Col>
       </Row>
+
+      {filteredDirectors.length === 0 && filter !== "" && (
+        <Row>
+          <h3 className="text-center">No results</h3>
+        </Row>
+      )}
+
       <Row className="">
         {directors.length === 0 ? (
-          <Col className="text-center">Loading directors...</Col>
+          <Col className="text-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Col>
         ) : (
           <>
             {filteredDirectors.map((director) => (
@@ -55,7 +67,7 @@ export const DirectorList = () => {
                 <PersonCard person={director} type={"director"} />
               </Col>
             ))}
-            {
+            {filteredDirectors.length > 0 && (
               <Pagination
                 itemsPerPage={itemsPerPage}
                 itemsTotal={
@@ -64,7 +76,7 @@ export const DirectorList = () => {
                 currentPage={currentPage}
                 handlePagination={handlePagination}
               />
-            }
+            )}
           </>
         )}
       </Row>
