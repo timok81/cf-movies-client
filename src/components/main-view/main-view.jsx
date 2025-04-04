@@ -140,7 +140,7 @@ const MainView = () => {
   const RedirectToSwagger = () => {
     useEffect(() => {
       window.location.replace(
-        "https://moviemovie-7703363b92cb.herokuapp.com/api-documentation"
+        "https://moviemovie-7703363b92cb.herokuapp.com/api-docs"
       );
     }, []);
 
